@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-simple-website
+spec:
+  containers:
+  - image: tasb/hello-static-site
+    name: my-simple-site
+    ports:
+    - containerPort: 80
