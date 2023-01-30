@@ -1,0 +1,37 @@
+/*
+Constants:
+SOF : Start of file
+EOF : End of file
+
+%value% : Value depends of language
+*/
+
+COMMAND : SOF (HELP_COMMAND | LOOK_COMMAND | INVENTORY_COMMAND | USE_COMMAND) EOF ;
+
+LOOK_COMMAND : WS LOOK WS;
+
+HELP_COMMAND : WS HELP WS;
+
+INVENTORY_COMMAND : WS INVENTORY WS;
+
+USE_COMMAND : WS USE WS ITEM;
+
+ITEM : I ID ;
+
+ID : (MINUSCULAS|[MAIUSCULAS]|[DIGITOS])+;
+
+MINUSCULAS : [a-z];
+
+MAIUSCULAS : [A-Z];
+
+DIGITOS : [0-6];
+
+INVENTORY: (%open% WS*)? %inventory% ;
+
+HELP:  %help% ; 
+
+LOOK:  %look% ; 
+
+USE: %use% ;
+  
+WS: [ \t\r\n]+ ;

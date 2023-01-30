@@ -1,0 +1,2 @@
+08:15:56.117 [main] ERROR otherPackage.SecondTest - Isto é um teste 2 error
+08:15:56.117 [main] FATAL otherPackage.SecondTest - Isto é um teste 2 fatal
