@@ -1,0 +1,35 @@
+table
+{
+
+  th{
+    background-color: gray;
+    color: white;
+    padding: 5px;
+
+  }
+
+  tbody {
+    td{
+      padding-top: 1em;
+    }
+  }
+  .task-name
+  {
+    width: auto;
+  }
+  .task-status
+  {
+    width: 70px;
+  }
+  .task-actions
+  {
+    width: 300px;
+    .btn
+    {
+      margin-left: 0.25em;
+    }
+  }
+  .concluida{
+    background-color: greenyellow;
+  }
+}
