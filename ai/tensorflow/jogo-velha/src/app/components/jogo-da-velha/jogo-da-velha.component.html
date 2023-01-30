@@ -1,0 +1,60 @@
+
+<div class="containner">
+  <div class="header">
+      <div class="title">Jogo da Velha</div>
+      <div class="selector">
+        <label>Jogadores </label>
+        <label for="1PlayerOpt">1 Jogador </label> <input checked id="1PlayerOpt" name="playerSel" type="radio">
+        <label for="2PlayerOpt">2 Jogadores </label> <input  id="2PlayerOpt" name="playerSel" type="radio">
+      </div>
+  </div>
+  <div class="body">
+    <div class="game">
+        <div class="vs">
+          Jogador 1 X Vs. Jogador 2 O
+        </div>
+        <div class="boardgame">
+          <table>
+            <tr><td>X</td><td>X</td><td>X</td></tr>
+            <tr><td>X</td><td>X</td><td>X</td></tr>
+            <tr><td>X</td><td>X</td><td>X</td></tr>
+          </table>
+        </div>
+        <div class="result">
+          Jogador 1 é o vencedor!
+        </div>
+    </div>
+    <div class="bar">
+      <div class="turn">
+        <label class="turn-label">Turno do jogador 1</label>
+      </div>
+      <div class="actions">
+        <button >Novo Jogo</button>
+      </div>
+    </div>
+    <div class="train">
+        <fieldset>
+          <legend>Treino:</legend>
+          <div class="fields">
+            <input placeholder="quantidade"/>
+            <input placeholder="nome"/>
+            <input placeholder="epoch"/>
+          </div>
+          <div class="actions"><button>Carregar</button><button>Treinar</button></div>
+        </fieldset>
+    </div>
+    <div class="output">
+        <label>Output</label>
+        <textarea></textarea>
+    </div>
+  </div>
+  <div class="footer">
+    <label>Nenhum modelo carregado.</label>
+  </div>
+</div>
+<div class="old">
+  <p>3X-1!</p>
+  <p>Input X:<input [(ngModel)]="x"></p>
+  <p>Y:{{y}}</p>
+  <button (click)="onClick()">Calcular</button><button (click)="onTreinar()">Treinar</button>
+</div>
