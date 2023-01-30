@@ -1,0 +1,24 @@
+{  
+    "mappings" : {
+      "properties" : {
+        "email" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "id" : {
+          "type" : "keyword"
+        },
+        "profileid" : {
+          "type" : "long"
+        },
+        "validateTo" : {
+          "type" : "date"
+        }
+      }
+    }
+ }

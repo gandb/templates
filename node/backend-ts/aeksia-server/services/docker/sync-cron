@@ -1,0 +1,2 @@
+* * * * * /BOOTAPP/docker/sync.sh>>/var/log/cron.log
+

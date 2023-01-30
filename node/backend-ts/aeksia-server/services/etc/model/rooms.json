@@ -1,0 +1,42 @@
+{
+  "mappings" : {
+    "properties" : {
+      "created" : {
+        "type" : "date"
+      },
+      "gametypeid" : {
+        "type" : "keyword"
+      }
+      ,
+      "id" : {
+        "type" : "keyword"
+      }
+      ,
+      "image" : {
+        "type" : "keyword"
+      },
+      "name" : {
+        "type" : "text",
+        "fields" : {
+          "keyword" : {
+            "type" : "keyword",
+            "ignore_above" : 256
+          }
+        
+        }
+      },
+      "ownerid" : {
+        "type" : "keyword"
+      },
+      "sheettemplates" : {
+        "type" : "keyword"
+       },
+       "bundles" : {
+        "type" : "keyword"
+       },
+       "players" : {
+        "type" : "keyword"
+       }
+   }
+  }
+}

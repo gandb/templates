@@ -1,0 +1,18 @@
+{
+  "mappings" : {
+    "properties" : {
+      "docid" : {
+        "type" : "keyword"
+      },
+      "id" : {
+        "type" : "keyword"
+      },
+      "ownerid" : {
+        "type" : "keyword"
+      },
+      "roomid" : {
+        "type" : "keyword"
+      }
+    }
+  }
+}
