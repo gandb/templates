@@ -1,2 +1,3 @@
 **/node_modules/**
 flutter/**/build/**
+**/__pycache__/**
