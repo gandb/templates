@@ -1,3 +1,6 @@
 **/node_modules/**
 flutter/**/build/**
 **/__pycache__/**
+3dunity/**/Temp/**
+3dunity/**/Logs/**
+3dunity/**/Library/**
