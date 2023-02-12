@@ -8,7 +8,7 @@
   <div class="body">
     <div class="game">
         <div class="vs">
-          <label>{{versusPlayerLabel}}</label>
+          Jogador 1 X Vs. Jogador 2 O
         </div>
         <app-board-game class="boardgame" (click)="onBoardGameClick($event)" [data]="game.data"></app-board-game>
         <div class="result">
@@ -31,12 +31,10 @@
             <input placeholder="nome"/>
             <input placeholder="epoch"/>
           </div>
-          <div class="actions">
-            <button>Carregar</button>
-            <button>Treinar</button></div>
+          <div class="actions"><button>Carregar</button><button>Treinar</button></div>
         </fieldset>
     </div>
-    <app-output class="output" [value]="output"></app-output>
+    <app-output class="output" value="isso é um teste"></app-output>
   </div>
   <div class="footer">
     <label>Nenhum modelo carregado.</label>

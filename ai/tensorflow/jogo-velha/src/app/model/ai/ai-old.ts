@@ -1,6 +1,6 @@
 import * as tf from '@tensorflow/tfjs';
 import {ModelPredictConfig,LayersModel} from '@tensorflow/tfjs';
-import {createHandler} from './mem-handles'
+import {createHandler} from './localStorageHandler'
 
 //https://www.tensorflow.org/js/guide/layers_for_keras_users
 
@@ -11,7 +11,7 @@ async function  print(x:any,y:any,times:number, method:string,w1:any,w2:any)
 }
 
 
-async function runForXTimes(times:number){
+export async function runForXTimes(times:number){
         let model:LayersModel|any=tf.sequential();
 
         model.add(tf.layers.dense({units: 1,  inputShape:[1]}));
@@ -29,7 +29,7 @@ async function runForXTimes(times:number){
     const ioHandler = createHandler("function","modelo");
 
 
-        if (ioHandler.exist()) {
+        if (false && ioHandler.exist()) {
             //carrega treino
             model = await tf.loadLayersModel(ioHandler as any);
         }
@@ -78,10 +78,19 @@ async function runForXTimes(times:number){
    const w1 = model.layers[0].getWeights()[0];
    const w2 = model.layers[0].getWeights()[1];
 
-   print(100,parseInt(model.predict(tf.tensor1d([100]) ).toString()),times,"adam",w1,w2);
-   print(1111,parseInt(model.predict(tf.tensor1d([1111]) ).toString()),times,"adam",w1,w2);
-   print(1000001,parseInt(model.predict(tf.tensor1d([1000001]) ).toString()),times,"adam",w1,w2);
-   print(10,parseInt(model.predict(tf.tensor1d([10]) ).toString()),times,"adam",w1,w2);
+   print(100,await predict(model).with(tf.tensor1d([100]) ),times,"adam",w1,w2);
+   print(1111,await predict(model).with(tf.tensor1d([1111]) ),times,"adam",w1,w2);
+   print(1000001,await predict(model).with(tf.tensor1d([1000001])),times,"adam",w1,w2);
+   print(10,await predict(model).with(tf.tensor1d([10]) ),times,"adam",w1,w2);
+}
+
+function predict(model:any)
+{
+  return {
+    with:async (tensor:any)=>{
+      return  parseInt((await model.predict(tensor).dataSync()).toString());
+    }
+  }
 }
 
 

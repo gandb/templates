@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectorPlayerEventOnChange } from '../selector-player/seletor-player-event-on-change';
-import { JogoDaVelhaAI } from "../../model/ai/ai"
+import { calc, runForXTimes } from "../../model/ai/ai"
 import { JogoVelha, STATE_END, STATE_PLAYING, STATE_START } from 'src/app/model/jogo-velha/jogo-velha';
 import { BoardGameOnClick } from '../board-game/board-game-onclick';
 
@@ -11,16 +11,12 @@ import { BoardGameOnClick } from '../board-game/board-game-onclick';
 })
 export class JogoDaVelhaComponent implements OnInit {
 
-  players: number = 1;
-  playersChoosed:number = 1;
+  players: Number = 1;
   boardgameData: Array<Array<number>> = [];
   y: number = 0;
   x: string = "";
   game: JogoVelha = new JogoVelha();
   status:string="Jogo não iniciado";
-  aiPlayer:number=0;
-  ai:JogoDaVelhaAI = ((undefined as  any) as JogoDaVelhaAI);
-  output:string="";
 
   constructor() { }
 
@@ -28,13 +24,6 @@ export class JogoDaVelhaComponent implements OnInit {
     if (this.boardgameData.length == 0) {
       this.boardgameData = Array(3).fill(Array(3).fill(0));
     }
-
-    window.document.addEventListener("JogoDaVelhaAILog",(e:any)=>{
-      this.output = this.output + "\n" + e.detail.text;
-    });
-
-    this.ai = new JogoDaVelhaAI(this.game);
-    this.onNewGame();
   }
 
   async onClick() {
@@ -42,7 +31,8 @@ export class JogoDaVelhaComponent implements OnInit {
       alert("X precisa ser numérico");
       return;
     }
-
+    console.log("this.x", this.x);
+    this.y = await calc(parseInt(this.x));
   }
 
   async onTreinar() {
@@ -50,7 +40,8 @@ export class JogoDaVelhaComponent implements OnInit {
       alert("X precisa ser numérico");
       return;
     }
-
+    console.log("this.x", this.x);
+    await runForXTimes(parseInt(this.x));
   }
 
   onBoardGameClick(event:BoardGameOnClick)
@@ -60,27 +51,6 @@ export class JogoDaVelhaComponent implements OnInit {
       return;
     }
     this.game.play(event.x,event.y);
-
-    if(this.game.state!=STATE_END)
-    {
-      this.ai.play();
-    }
-
-  }
-
-  get versusPlayerLabel ():string{
-    if(this.playersChoosed==2)
-    {
-        return  "Player 1 X Vs Player 2 O";
-    }
-
-    if(this.aiPlayer==0)
-    {
-      return  "Computer X Vs Human O";
-    }
-
-
-    return  "Human X Vs Computer";
 
   }
 
@@ -94,25 +64,9 @@ export class JogoDaVelhaComponent implements OnInit {
     return (this.game.playerWin<0)?"Jogador 1":(this.game.playerWin==0)?"Empate":"Jogador 2";
   }
 
-  get isHumanVsComputer():boolean
-  {
-    return this.playersChoosed == 1;
-  }
-
   onNewGame(){
     this.game.newGame();
-    this.playersChoosed = this.players;
-    if(!this.isHumanVsComputer)
-    {
-      return;
-    }
-
-    this.aiPlayer = Math.round(Math.random());
-    console.log("this.aiPlayer",this.aiPlayer);
-    if(this.aiPlayer==0)
-    {
-      this.ai.play();
-    }
+    console.log(this.status,this.game.state );
   }
 
   calcStatus() {
