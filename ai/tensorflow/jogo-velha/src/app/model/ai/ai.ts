@@ -11,13 +11,12 @@ const ONE_PLAYER_MODE:number=2;
 
 export class JogoDaVelhaAI
 {
-  private model:tf.Sequential =  tf.sequential();
+  private model:tf.Sequential;
   private game:JogoVelha;
-  private moves1:Array<Move>=new Array();
-  private moves2:Array<Move>=new Array();
-  private state:number=IDLE;
+  private moves:Array<Move>=new Array();
+  private isTraining:boolean=false;
 
-  constructor(game:JogoVelha){
+  constructor(game:JogoVelha,model:tf.Sequential =  tf.sequential()){
     /**
      * Modelagem de entrada da rede neural:
      * Entrada : 3x3 (tratado, o computador sempre é o jogador 1 e é o próximo a jogar)
@@ -26,8 +25,14 @@ export class JogoDaVelhaAI
      */
     this.eventLog("Iniciando IA");
     this.game = game;
+    this.model = model;
+    const isNewModel:boolean = model.layers.length==0;
+    if(! isNewModel)
+    {
+      return;
+    }
+    this.eventLog("Criando modelo...");
     this.eventLog("Adicionando camadas...");
-    //this.model.add(tf.layers.dense({units: 9, inputShape:[2]}));
     this.model.add(tf.layers.dense({units: 9, useBias: true, activation: 'relu',inputShape:[9]}));
     this.eventLog("Camada de Entrada adicionada...");
     this.model.add(tf.layers.dense({units: 8, useBias: true, activation: 'relu'}));
@@ -41,7 +46,7 @@ export class JogoDaVelhaAI
   }
 
   startGame(){
-    this.state = ONE_PLAYER_MODE;
+    this.moves=new Array();
   }
 
   getTrainData(array:number[][],index:number,data:Array<number>):number[][]
@@ -60,26 +65,13 @@ export class JogoDaVelhaAI
     }
     let isAvaiable:boolean=false;
     this.eventLog( "Preparando dados:");
-    const data:number[] =  this.prepareDataWhereAIIsPlayerOne();
+    const data2D:number[][] =  this.prepareDataWhereAIIsPlayerOne();
+    const data:number[] = data2D.flat();
     this.eventLog( "Dados preparados...");
     while(!isAvaiable)
     {
-      this.eventLog( "Treino temporario...");
 
-      this.eventLog( "Iniciando construção de X");
 
-      let xArr:number[][] = [];
-      xArr = this.getTrainData(xArr,0,data);
-      let  x =  tf.tensor2d(xArr);
-      this.eventLog( "Iniciando construção de Y");
-
-      const yArr:number[][] = [[0,1]];
-      const y =  tf.tensor2d(yArr);
-
-      this.eventLog( "Iniciando treino...");
-      const a = await this.model.fit(x, y, {batchSize:1, epochs:1000});
-      //this.eventLog(JSON.stringify(a));
-      //console.log(a);
 
       this.eventLog( "Iniciando predição...");
 
@@ -102,16 +94,20 @@ export class JogoDaVelhaAI
         this.eventLog( "Sugestão aleatória selecionada  (" + playX + "," + playY + ").");
       }
       this.eventLog( "Computador joga em (" + playX + "," + playY + ").");
+      const move:Move = new Move(data2D,playX,playY);
+      this.moves.push(move);
       this.game.play(playX,playY);
       //Proximos passos
       /*
         1-) Done - Adaptar a saída pro mundo real
-        2-) Corrigir bug de permitir o humano jogar enquanto é a vez do computador
-        3-) Alterar legenda de quem ganhou quando é humano vs computador pra dizer humano ou computador
-        4-) Guardar a jogada do jogador
-        5-) Enviar pro objeto do jogo a jogada
-        6-) Configurar o treino pra treinar o computador contra o computador
-        7-) Arrumar o load e save
+        2-) Done -Corrigir bug de permitir o humano jogar enquanto é a vez do computador
+        3-) Done -Alterar legenda de quem ganhou quando é humano vs computador pra dizer humano ou computador
+        4-) Done -Guardar a jogada do jogador
+        5-) Done -Enviar pro objeto do jogo a jogada
+        6-) Done - Configurar o treino pra treinar o computador contra o computador
+        7-) Corrigir bug das coordenadas trocadas
+        8-) Injetar o treino no modelo
+        9-) Arrumar o load e save
 
       */
     }
@@ -193,15 +189,15 @@ export class JogoDaVelhaAI
       return -1;
     })
   }
-  prepareDataWhereAIIsPlayerOne( ): Array< number> {
+  prepareDataWhereAIIsPlayerOne( ): Array< Array< number>> {
     let copyData = this.game.data.map((array) => array.slice() ).slice();
     const playerOneIsTheActivePlayer = this.game.activePlayer==1;
     if(this.game.activePlayer==1)
     {
-      return  copyData.flat();
+      return  copyData ;
     }
     copyData=copyData.map(this.switchPlayers);
-    return  copyData.flat();
+    return  copyData;
   }
 
   predict()
@@ -216,12 +212,60 @@ export class JogoDaVelhaAI
 
 
   async train(times:number,epochs:number){
-    this.game.newGame();
 
+
+    this.eventLog( "=====INICIANDO TREINAMENTO======","INFO");
+    this.eventLog( "times:"+times);
+    this.eventLog( "epochs:"+epochs);
+    this.eventLog( "================================","INFO");
+
+
+    this.isTraining = true;
+
+    this.startGame();
+
+    this.game.newGame();
+    const enemy:JogoDaVelhaAI = new JogoDaVelhaAI(this.game,this.model);
+    let move:number = 0;
+
+    while(this.game.state==STATE_PLAYING)
+    {
+      if(move>9)
+      {
+        throw new Error("Ilegal lenght of moves");
+      }
+      console.log("Movimento " + (++move));
+      console.log("Data:" ,this.game.data);
+      console.log("State:" ,this.game.playerWin);
+      await this.play();
+      if(this.game.state!=STATE_PLAYING)
+      {
+        break;
+      }
+      await enemy.play()
+    }
+    const winner:JogoDaVelhaAI=(this.game.playerWin==-1)?this:enemy;
+    console.log("winner.moves",winner.moves);
     //const x = tf.tensor2d(arrayX);
 
     //const y = tf.tensor2d(arrayY);
 
     //const a = await model.fit(xs, ys, {epochs});
+    /**
+        this.eventLog( "Iniciando construção de X");
+
+      let xArr:number[][] = [];
+      xArr = this.getTrainData(xArr,0,data);
+      let  x =  tf.tensor2d(xArr);
+      this.eventLog( "Iniciando construção de Y");
+
+      const yArr:number[][] = [[0,1]];
+      const y =  tf.tensor2d(yArr);
+
+      this.eventLog( "Iniciando treino...");
+      const a = await this.model.fit(x, y, {batchSize:1, epochs:1000});
+      //this.eventLog(JSON.stringify(a));
+      //console.log(a);
+     */
   }
 }

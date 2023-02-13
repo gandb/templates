@@ -51,6 +51,7 @@ export class JogoDaVelhaComponent implements OnInit {
       return;
     }
 
+    await this.ai.train(1,1);
   }
 
   onBoardGameClick(event:BoardGameOnClick)
@@ -123,8 +124,6 @@ export class JogoDaVelhaComponent implements OnInit {
     {
       if(this.aiPlayer  == this.game.playerWin)
       {
-        console.log("this.game.playerWin",this.game.playerWin);
-        console.log("this.aiPlayer",this.aiPlayer);
         return "Computador";
       }
       return "Humano";
@@ -148,7 +147,6 @@ export class JogoDaVelhaComponent implements OnInit {
 
     this.aiPlayer = Math.round(Math.random())*2-1;
 
-    console.log("this.aiPlayer",this.aiPlayer);
     if(this.aiPlayer==-1)
     {
       this.ai.play();

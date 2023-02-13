@@ -64,9 +64,14 @@ export class JogoVelha{
 
   validateGameOver()
   {
+    console.log("validateGameOver.inicial",this.state);
     this.validateGameOverInLines();
+    console.log("validateGameOver.validateGameOverInLines",this.state);
     this.validateGameOverInDiagonals();
+    console.log("validateGameOver.validateGameOverInDiagonals",this.state);
     this.validateTie();
+    console.log("validateGameOver.validateTie",this.state);
+
   }
 
   validateTie()
