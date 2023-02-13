@@ -70,7 +70,6 @@ export class JogoDaVelhaAI
 
       let xArr:number[][] = [];
       xArr = this.getTrainData(xArr,0,data);
-      console.log("XArr",xArr);
       let  x =  tf.tensor2d(xArr);
       this.eventLog( "Iniciando construção de Y");
 
@@ -90,11 +89,24 @@ export class JogoDaVelhaAI
       const sugest =await this.predict().with(tf.tensor2d([input]) );
       this.eventLog( "Sugestão dada :"+ JSON.stringify( sugest) + " para " + JSON.stringify(this.game.data));
       isAvaiable=true;
-      console.log("sugest",sugest);
+      console.log("sugest:",sugest[0],",",sugest[1]);
 
+      let playX:number = Math.round(sugest[0]);
+      let playY:number = Math.round(sugest[1]);
+
+      if(!this.validatePlay(playX,playY))
+      {
+        this.eventLog( "Sugestão dada (" + playX + "," + playY + ") é incorreta.");
+        let randomPlay:number[] = this.findRandomPlay();
+        playX = Math.round(randomPlay[0]);
+        playY = Math.round(randomPlay[1]);
+        this.eventLog( "Sugestão aleatória selecionada  (" + playX + "," + playY + ").");
+      }
+      this.eventLog( "Computador joga em (" + playX + "," + playY + ").");
+      this.game.play(playX,playY);
       //Proximos passos
       /*
-        1-) Adaptar a saída pro mundo real (arredondando, e no caso de uma jogada invalida, retornar um lugar desocupado aleatorio)
+        1-) Done - Adaptar a saída pro mundo real
         2-) Guardar a jogada do jogador
         3-) Enviar pro objeto do jogo a jogada
         4-) Configurar o treino pra treinar o computador contra o computador
@@ -103,6 +115,51 @@ export class JogoDaVelhaAI
       */
     }
   }
+  findRandomPlay(): number[] {
+    let count:number =0;
+    this.game.data.flat().forEach((value)=>{
+      if(value==0)
+      {
+        count++;
+      }
+    });
+    let choosed:number = Math.round(Math.random()*count);
+    let choosedIndex:number = 0;
+    let retX:number = -1;
+    let retY:number = -1;
+    this.game.data.forEach((ys,x)=>ys.forEach((value,y)=>{
+      if(retX==-1 && value==0 && ++choosedIndex == choosed)
+      {
+        this.eventLog( "x:" + x);
+        this.eventLog( "y:" + y);
+        this.eventLog( "choosedIndex:" + choosedIndex);
+        retX = x;
+        retY = y;
+      }
+    }));
+    if(retX==-1 || retY==-1)
+    {
+      this.eventLog( "ERROR , não encontrou uma jogada válida","ERROR");
+    }
+    this.eventLog( "count:" + count);
+    this.eventLog( "choosed:" + choosed);
+    this.eventLog( "choosedIndex:" + choosedIndex);
+    return [retX,retY];
+  }
+
+
+  validatePlay(playX: number, playY: number):boolean {
+    if(playX<0||playX>8||playY<0||playY>8)
+    {
+      return false;
+    }
+    if(this.game.data[playX][playY]!=0)
+    {
+      return false;
+    }
+    return true;
+  }
+
 
 
   eventLog( text:string,level:string="TRACE")
@@ -163,4 +220,3 @@ export class JogoDaVelhaAI
     //const a = await model.fit(xs, ys, {epochs});
   }
 }
-
