@@ -89,7 +89,6 @@ export class JogoDaVelhaAI
       const sugest =await this.predict().with(tf.tensor2d([input]) );
       this.eventLog( "Sugestão dada :"+ JSON.stringify( sugest) + " para " + JSON.stringify(this.game.data));
       isAvaiable=true;
-      console.log("sugest:",sugest[0],",",sugest[1]);
 
       let playX:number = Math.round(sugest[0]);
       let playY:number = Math.round(sugest[1]);
@@ -107,10 +106,12 @@ export class JogoDaVelhaAI
       //Proximos passos
       /*
         1-) Done - Adaptar a saída pro mundo real
-        2-) Guardar a jogada do jogador
-        3-) Enviar pro objeto do jogo a jogada
-        4-) Configurar o treino pra treinar o computador contra o computador
-        5-) Arrumar o load e save
+        2-) Corrigir bug de permitir o humano jogar enquanto é a vez do computador
+        3-) Alterar legenda de quem ganhou quando é humano vs computador pra dizer humano ou computador
+        4-) Guardar a jogada do jogador
+        5-) Enviar pro objeto do jogo a jogada
+        6-) Configurar o treino pra treinar o computador contra o computador
+        7-) Arrumar o load e save
 
       */
     }
@@ -123,13 +124,17 @@ export class JogoDaVelhaAI
         count++;
       }
     });
-    let choosed:number = Math.round(Math.random()*count);
+    let choosed:number = Math.round(Math.random()*(count-1));
     let choosedIndex:number = 0;
     let retX:number = -1;
     let retY:number = -1;
     this.game.data.forEach((ys,x)=>ys.forEach((value,y)=>{
-      if(retX==-1 && value==0 && ++choosedIndex == choosed)
+      if(retX==-1 && value==0 )
       {
+        if(choosedIndex++ != choosed)
+        {
+          return;
+        }
         this.eventLog( "x:" + x);
         this.eventLog( "y:" + y);
         this.eventLog( "choosedIndex:" + choosedIndex);

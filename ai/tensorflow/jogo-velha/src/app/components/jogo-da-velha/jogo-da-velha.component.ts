@@ -59,6 +59,12 @@ export class JogoDaVelhaComponent implements OnInit {
     {
       return;
     }
+
+    if(this.game.activePlayer==this.aiPlayer && this.playersChoosed == 1)
+    {
+      return;
+    }
+
     this.game.play(event.x,event.y);
 
     if(this.game.state!=STATE_END)
@@ -68,19 +74,41 @@ export class JogoDaVelhaComponent implements OnInit {
 
   }
 
+  get turn():string{
+    if(this.isHumanVsComputer)
+    {
+      if(this.game.activePlayer==this.aiPlayer)
+      {
+
+        return  "Turno do Computador!";
+      }
+      return "Turno do humano!";
+
+
+    }
+
+    if(this.game.activePlayer==0)
+    {
+      return  "Turno do jogador 1!";
+    }
+
+    return  "Turno do jogador 2";
+
+  }
+
   get versusPlayerLabel ():string{
     if(this.playersChoosed==2)
     {
-        return  "Player 1 X Vs Player 2 O";
+        return  "Jogador 1 X Vs Jogador 2 O";
     }
 
-    if(this.aiPlayer==0)
+    if(this.aiPlayer==-1)
     {
-      return  "Computer X Vs Human O";
+      return  "Computador X Vs Humano O";
     }
 
 
-    return  "Human X Vs Computer";
+    return  "Humano X Vs Computador O";
 
   }
 
@@ -91,7 +119,18 @@ export class JogoDaVelhaComponent implements OnInit {
 
   getPlayerWin():string
   {
-    return (this.game.playerWin<0)?"Jogador 1":(this.game.playerWin==0)?"Empate":"Jogador 2";
+    if(this.isHumanVsComputer)
+    {
+      if(this.aiPlayer  == this.game.playerWin)
+      {
+        console.log("this.game.playerWin",this.game.playerWin);
+        console.log("this.aiPlayer",this.aiPlayer);
+        return "Computador";
+      }
+      return "Humano";
+    }
+
+    return (this.game.playerWin<0)?"Jogador 1":"Jogador 2";
   }
 
   get isHumanVsComputer():boolean
@@ -107,9 +146,10 @@ export class JogoDaVelhaComponent implements OnInit {
       return;
     }
 
-    this.aiPlayer = Math.round(Math.random());
+    this.aiPlayer = Math.round(Math.random())*2-1;
+
     console.log("this.aiPlayer",this.aiPlayer);
-    if(this.aiPlayer==0)
+    if(this.aiPlayer==-1)
     {
       this.ai.play();
     }
@@ -125,11 +165,24 @@ export class JogoDaVelhaComponent implements OnInit {
           return "Ocorreu um empate!";
         }
         default:{
-          return "Jogador " + this.getPlayerWin() + " ganhou!";
+          return  this.getPlayerWin() + " ganhou!";
         }
       }
     }
-    return (this.game.state == STATE_PLAYING) ? "Turno do jogador " + this.getActivePlayer() :   "Jogo não iniciado";
+    if (this.game.state != STATE_PLAYING) {
+      return "Jogo não iniciado";
+    }
+
+    if(this.isHumanVsComputer)
+    {
+      if(this.game.activePlayer==this.aiPlayer)
+      {
+        return "Turno do Computador";
+      }
+      return "Turno do Humano";
+    }
+    return "Turno do jogador " + this.getActivePlayer();
+
   }
 
   onSelectPlayers(event: SelectorPlayerEventOnChange) {

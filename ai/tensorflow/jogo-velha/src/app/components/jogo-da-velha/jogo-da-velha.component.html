@@ -17,7 +17,7 @@
     </div>
     <div class="bar">
       <div class="turn">
-        <label class="turn-label">Turno do jogador 1</label>
+        <label class="turn-label">{{turn}}</label>
       </div>
       <div class="actions">
         <button (click)="onNewGame()">Novo Jogo</button>
@@ -41,10 +41,4 @@
   <div class="footer">
     <label>Nenhum modelo carregado.</label>
   </div>
-</div>
-<div class="old">
-  <p>3X-1!</p>
-  <p>Input X:<input [(ngModel)]="x"></p>
-  <p>Y:{{y}}</p>
-  <button (click)="onClick()">Calcular</button><button (click)="onTreinar()">Treinar</button>
 </div>
