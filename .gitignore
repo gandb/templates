@@ -1,9 +1,67 @@
+###################===JS===#########################
 **/node_modules/**
-flutter/**/build/**
+###################===PYTHON===#########################
 **/__pycache__/**
+###################===3D Unit===#########################
 3dunity/**/Temp/**
 3dunity/**/Logs/**
 3dunity/**/Library/**
+###################===Oracle===#########################
 oracle/OracleXE213_Win64.zip
 oracle/
+###################===AI===#########################
 ai/openai/openaikey.txt
+###################===FLUTTER===#########################
+# Arquivos e diretórios gerados automaticamente
+**/flutter/**/ios/Flutter/.last_build_id
+**/flutter**/ios/Flutter/flutter_export_environment.sh
+**/flutter**/ios/Flutter/Flutter.framework
+**/flutter**/ios/Flutter/App.framework
+**/flutter**/ios/Flutter/app.flx
+**/flutter**/ios/Flutter/app.zip
+**/flutter**/ios/ServiceDefinitions.json
+**/flutter**/ios/Runner/GeneratedPluginRegistrant.*
+
+# Diretórios do Dart
+**/flutter/**/README.md
+**/flutter/**/.dart_tool/
+**/flutter/**/.packages
+
+# Diretórios do Flutter
+**/flutter/**/flutter/
+**/flutter/**/.pub-cache/
+**/flutter/**/.pub/
+**/flutter/**/build/
+
+# Arquivos do Android
+**/flutter/**/android/**/gradle-wrapper.jar
+**/flutter/**/android/.gradle
+**/flutter/**/android/captures/
+**/flutter/**/android/gradlew
+**/flutter/**/android/gradlew.bat
+**/flutter/**/android/local.properties
+**/flutter/**/android/**/GeneratedPluginRegistrant.java
+
+# Arquivos do Xcode
+**/flutter/**/ios/**/*.mode1v3
+**/flutter/**/ios/**/*.mode2v3
+**/flutter/**/ios/**/*.moved-aside
+**/flutter/**/ios/**/*.pbxuser
+**/flutter/**/ios/**/*.perspectivev3
+**/flutter/**/ios/**/*sync/
+**/flutter/**/ios/**/.sconsign.dblite
+**/flutter/**/ios/**/.tags*
+**/flutter/**/ios/**/.vagrant/
+**/flutter/**/ios/**/DerivedData/
+**/flutter/**/ios/**/.idea/
+**/flutter/**/ios/**/.vagrant/
+**/flutter/**/ios/**/Pods/
+**/flutter/**/ios/**/.symlinks/
+**/flutter/**/ios/**/profile
+**/flutter/**/ios/**/xcuserdata
+**/flutter/**/ios/.generated/
+
+# Exceção para arquivos do versionamento semântico
+!/pubspec.yaml
+!/pubspec.lock
+!/version
