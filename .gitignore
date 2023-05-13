@@ -28,7 +28,6 @@ ai/openai/openaikey.txt
 **/flutter/**/.packages
 
 # Diretórios do Flutter
-**/flutter/**/flutter/
 **/flutter/**/.pub-cache/
 **/flutter/**/.pub/
 **/flutter/**/build/
