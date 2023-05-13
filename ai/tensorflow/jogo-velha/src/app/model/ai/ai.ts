@@ -16,33 +16,40 @@ export class JogoDaVelhaAI
   private moves:Array<Move>=new Array();
   private isTraining:boolean=false;
 
-  constructor(game:JogoVelha,model:tf.Sequential =  tf.sequential()){
+  constructor(game:JogoVelha,model:tf.Sequential|undefined=undefined ){
     /**
      * Modelagem de entrada da rede neural:
      * Entrada : 3x3 (tratado, o computador sempre é o jogador 1 e é o próximo a jogar)
      * Camadas Ocultas de 8,4 e 2 bytes
      * Saída : X,Y
      */
-    this.eventLog("Iniciando IA");
     this.game = game;
-    this.model = model;
-    const isNewModel:boolean = model.layers.length==0;
+    this.model = model as tf.Sequential;
+    const isNewModel:boolean = model==undefined;
     if(! isNewModel)
     {
       return;
     }
-    this.eventLog("Criando modelo...");
-    this.eventLog("Adicionando camadas...");
+
+    this.startAI();
+
+
+  }
+
+  startAI() {
+    this.model =  tf.sequential();
+    this.eventLog("Iniciando IA","INFO");
+    this.eventLog("Criando modelo...","INFO");
+    this.eventLog("Adicionando camadas...","INFO");
     this.model.add(tf.layers.dense({units: 9, useBias: true, activation: 'relu',inputShape:[9]}));
-    this.eventLog("Camada de Entrada adicionada...");
+    this.eventLog("Camada de Entrada adicionada...","INFO");
     this.model.add(tf.layers.dense({units: 8, useBias: true, activation: 'relu'}));
     this.model.add(tf.layers.dense({units: 4, useBias: true, activation: 'relu'}));
-    this.eventLog("Camadas intermediarias adicionadas...");
+    this.eventLog("Camadas intermediarias adicionadas...","INFO");
     this.model.add(tf.layers.dense({units: 2, useBias: true}));
-    this.eventLog("Camada de Saída adicionada...");
+    this.eventLog("Camada de Saída adicionada...","INFO");
     this.model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
-    this.eventLog("Modelo compilado...");
-
+    this.eventLog("Modelo compilado...","INFO");
   }
 
   startGame(){
@@ -58,28 +65,28 @@ export class JogoDaVelhaAI
   }
 
   async play(){
-    this.eventLog( "Jogada iniciada");
+    this.eventLog( "Jogada iniciada","INFO");
     if(this.game.state!=STATE_PLAYING)
     {
       throw new Error("Game is not started");
     }
     let isAvaiable:boolean=false;
-    this.eventLog( "Preparando dados:");
+    this.eventLog( "Preparando dados:","INFO");
     const data2D:number[][] =  this.prepareDataWhereAIIsPlayerOne();
     const data:number[] = data2D.flat();
-    this.eventLog( "Dados preparados...");
+    this.eventLog( "Dados preparados...","INFO");
     while(!isAvaiable)
     {
 
 
 
-      this.eventLog( "Iniciando predição...");
+      this.eventLog( "Iniciando predição...","INFO");
 
       const input = data.flat();
 
       //Note que o tensorf é 2d, porque o predict aceita um array de entradas pra gerar as saidas, entao pra um predict é sempre um array de [1,entrada]
       const sugest =await this.predict().with(tf.tensor2d([input]) );
-      this.eventLog( "Sugestão dada :"+ JSON.stringify( sugest) + " para " + JSON.stringify(this.game.data));
+      this.eventLog( "Sugestão dada :"+ JSON.stringify( sugest) + " para " + JSON.stringify(this.game.data),"INFO");
       isAvaiable=true;
 
       let playX:number = Math.round(sugest[0]);
@@ -87,29 +94,16 @@ export class JogoDaVelhaAI
 
       if(!this.validatePlay(playX,playY))
       {
-        this.eventLog( "Sugestão dada (" + playX + "," + playY + ") é incorreta.");
+        this.eventLog( "Sugestão dada (" + playX + "," + playY + ") é incorreta.","INFO");
         let randomPlay:number[] = this.findRandomPlay();
         playX = Math.round(randomPlay[0]);
         playY = Math.round(randomPlay[1]);
-        this.eventLog( "Sugestão aleatória selecionada  (" + playX + "," + playY + ").");
+        this.eventLog( "Sugestão aleatória selecionada  (" + playX + "," + playY + ").","INFO");
       }
-      this.eventLog( "Computador joga em (" + playX + "," + playY + ").");
+      this.eventLog( "Computador joga em (" + playX + "," + playY + ").","INFO");
       const move:Move = new Move(data2D,playX,playY);
       this.moves.push(move);
       this.game.play(playX,playY);
-      //Proximos passos
-      /*
-        1-) Done - Adaptar a saída pro mundo real
-        2-) Done -Corrigir bug de permitir o humano jogar enquanto é a vez do computador
-        3-) Done -Alterar legenda de quem ganhou quando é humano vs computador pra dizer humano ou computador
-        4-) Done -Guardar a jogada do jogador
-        5-) Done -Enviar pro objeto do jogo a jogada
-        6-) Done - Configurar o treino pra treinar o computador contra o computador
-        7-) Corrigir bug das coordenadas trocadas
-        8-) Injetar o treino no modelo
-        9-) Arrumar o load e save
-
-      */
     }
   }
   findRandomPlay(): number[] {
@@ -210,62 +204,84 @@ export class JogoDaVelhaAI
     }
   }
 
+  async save(name:string)
+  {
+     const ioHandler = createHandler(name,"modelo");
+     this.eventLog( "Salvando modelo em " + name,"INFO");
+      return this.model.save( ioHandler as any  );
+  }
+
+
 
   async train(times:number,epochs:number){
 
+    if(this.isTraining)
+    {
+      return ;
+    }
 
     this.eventLog( "=====INICIANDO TREINAMENTO======","INFO");
-    this.eventLog( "times:"+times);
-    this.eventLog( "epochs:"+epochs);
+    this.eventLog( "times:"+times,"INFO");
+    this.eventLog( "epochs:"+epochs,"INFO");
     this.eventLog( "================================","INFO");
 
-
+    const victoryMoves:Array<Move>=[]
     this.isTraining = true;
 
-    this.startGame();
+    for(let trainCount=0;trainCount<times;trainCount++){
+      this.eventLog( "Jogo " + (trainCount+1),"INFO");
 
-    this.game.newGame();
-    const enemy:JogoDaVelhaAI = new JogoDaVelhaAI(this.game,this.model);
-    let move:number = 0;
+      this.startGame();
 
-    while(this.game.state==STATE_PLAYING)
-    {
-      if(move>9)
+      this.game.newGame();
+      const enemy:JogoDaVelhaAI = new JogoDaVelhaAI(this.game,this.model);
+      let move:number = 0;
+
+      while(this.game.state==STATE_PLAYING)
       {
-        throw new Error("Ilegal lenght of moves");
+
+        await this.play();
+        if(this.game.state!=STATE_PLAYING)
+        {
+          break;
+        }
+        await enemy.play()
       }
-      console.log("Movimento " + (++move));
-      console.log("Data:" ,this.game.data);
-      console.log("State:" ,this.game.playerWin);
-      await this.play();
-      if(this.game.state!=STATE_PLAYING)
+      if(this.game.playerWin==0)
       {
-        break;
+        continue;
       }
-      await enemy.play()
+      const winner:JogoDaVelhaAI=(this.game.playerWin==-1)?this:enemy;
+      victoryMoves.push(...winner.moves);
+
     }
-    const winner:JogoDaVelhaAI=(this.game.playerWin==-1)?this:enemy;
-    console.log("winner.moves",winner.moves);
-    //const x = tf.tensor2d(arrayX);
 
-    //const y = tf.tensor2d(arrayY);
 
-    //const a = await model.fit(xs, ys, {epochs});
-    /**
-        this.eventLog( "Iniciando construção de X");
+    this.eventLog( "Preparando dados de treino...","INFO");
 
-      let xArr:number[][] = [];
-      xArr = this.getTrainData(xArr,0,data);
-      let  x =  tf.tensor2d(xArr);
-      this.eventLog( "Iniciando construção de Y");
+    let xArr:number[][] = [];
+    const yArr:number[][] =[];
 
-      const yArr:number[][] = [[0,1]];
-      const y =  tf.tensor2d(yArr);
+    victoryMoves.forEach(
+      (move,index)=>{
 
-      this.eventLog( "Iniciando treino...");
-      const a = await this.model.fit(x, y, {batchSize:1, epochs:1000});
-      //this.eventLog(JSON.stringify(a));
-      //console.log(a);
-     */
+        xArr = this.getTrainData(xArr,index,move.data.flat());
+        yArr[index]=[move.x,move.y];
+
+      }
+    );
+
+    let  x =  tf.tensor2d(xArr);
+    const y =  tf.tensor2d(yArr);
+    this.eventLog( "Iniciando treino...","INFO");
+    const output = await this.model.fit(x, y, {batchSize:xArr.length, epochs:epochs});
+    this.eventLog( JSON.stringify(output),"INFO");
+    const startLoss:number = (output.history as any).loss[0] as number;
+    const lastLoss:number = (output.history as any).loss[epochs-1] as number;
+    this.eventLog( "Start loss:" + startLoss,"INFO");
+    this.eventLog( "Last loss:" + lastLoss,"INFO");
+    this.isTraining = false;
+    this.eventLog( "Treino finalizado!","INFO");
+
   }
 }

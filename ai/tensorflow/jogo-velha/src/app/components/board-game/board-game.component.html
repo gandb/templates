@@ -1,7 +1,7 @@
 <table>
   <tr *ngFor="let row of data; let i = index">
-    <td *ngFor="let item of row; let j = index" (click)="onClick($event,i,j)">
-      {{ calcPlayer(i, j) }}
+    <td *ngFor="let item of row; let j = index" (click)="onClick($event,j,i)">
+      {{ calcPlayer(  j,i) }}
     </td>
   </tr>
 </table>

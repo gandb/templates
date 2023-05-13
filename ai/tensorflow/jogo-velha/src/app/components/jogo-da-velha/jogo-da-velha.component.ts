@@ -4,6 +4,8 @@ import { JogoDaVelhaAI } from "../../model/ai/ai"
 import { JogoVelha, STATE_END, STATE_PLAYING, STATE_START } from 'src/app/model/jogo-velha/jogo-velha';
 import { BoardGameOnClick } from '../board-game/board-game-onclick';
 
+const LEVEL_LOG:string = "INFO";
+
 @Component({
   selector: 'app-jogo-da-velha',
   templateUrl: './jogo-da-velha.component.html',
@@ -21,7 +23,11 @@ export class JogoDaVelhaComponent implements OnInit {
   aiPlayer:number=0;
   ai:JogoDaVelhaAI = ((undefined as  any) as JogoDaVelhaAI);
   output:string="";
-
+  qtdy:number=1000;
+  name:string="";
+  epoch:number=1000;
+  train=false;
+  modelLoaded:string="Nenhum modelo carregado";
   constructor() { }
 
   ngOnInit(): void {
@@ -29,7 +35,7 @@ export class JogoDaVelhaComponent implements OnInit {
       this.boardgameData = Array(3).fill(Array(3).fill(0));
     }
 
-    window.document.addEventListener("JogoDaVelhaAILog",(e:any)=>{
+    window.document.addEventListener("JogoDaVelhaAILog"+LEVEL_LOG,(e:any)=>{
       this.output = this.output + "\n" + e.detail.text;
     });
 
@@ -45,13 +51,33 @@ export class JogoDaVelhaComponent implements OnInit {
 
   }
 
-  async onTreinar() {
-    if (isNaN(this.x as any)) {
-      alert("X precisa ser numérico");
+  async trainAfter() {
+    return new Promise((resolve) => {
+      window.setTimeout(async () => {
+        await this.ai.train(this.qtdy, this.epoch);
+        this.train = false;
+        resolve(true);
+      }, 250);
+    });
+  }
+
+
+  async onTrain() {
+    if(this.train){
       return;
     }
+    const name = this.name;
+    this.train=true;
 
-    await this.ai.train(1,1);
+    await this.trainAfter();
+
+    if(!name)
+    {
+      return;
+    }
+    this.ai.save(name);
+    this.modelLoaded = "Carregado modelo: " + name;
+
   }
 
   onBoardGameClick(event:BoardGameOnClick)
@@ -65,10 +91,9 @@ export class JogoDaVelhaComponent implements OnInit {
     {
       return;
     }
-
     this.game.play(event.x,event.y);
 
-    if(this.game.state!=STATE_END)
+    if(this.game.state!=STATE_END &&  this.playersChoosed == 1)
     {
       this.ai.play();
     }
@@ -154,6 +179,10 @@ export class JogoDaVelhaComponent implements OnInit {
   }
 
   calcStatus() {
+    if(this.train)
+    {
+      return "Em treino..."
+    }
     if(this.game.state == STATE_END)
     {
       switch(this.game.playerWin)

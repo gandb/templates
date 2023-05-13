@@ -27,18 +27,21 @@
         <fieldset>
           <legend>Treino:</legend>
           <div class="fields">
-            <input placeholder="quantidade"/>
-            <input placeholder="nome"/>
-            <input placeholder="epoch"/>
+            <label>Quatidade:</label>
+            <input placeholder="quantidade" [(ngModel)]="qtdy"/>
+            <label>Nome:</label>
+            <input placeholder="nome"   [(ngModel)]="name"/>
+            <label>Epoch:</label>
+            <input placeholder="epoch"   [(ngModel)]="epoch"/>
           </div>
           <div class="actions">
             <button>Carregar</button>
-            <button (click)="onTreinar()">Treinar</button></div>
+            <button (click)="onTrain()">Treinar</button></div>
         </fieldset>
     </div>
     <app-output class="output" [value]="output"></app-output>
   </div>
   <div class="footer">
-    <label>Nenhum modelo carregado.</label>
+    <label>{{modelLoaded}}</label>
   </div>
 </div>

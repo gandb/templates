@@ -84,6 +84,7 @@ export async function runForXTimes(times:number){
    print(10,await predict(model).with(tf.tensor1d([10]) ),times,"adam",w1,w2);
 }
 
+
 function predict(model:any)
 {
   return {
