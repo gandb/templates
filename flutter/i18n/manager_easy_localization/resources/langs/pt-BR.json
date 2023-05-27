@@ -1,0 +1,10 @@
+{
+   "msg":"{} esta escrito na linguagem {} ",
+   "msg_named":"Easy localization é escrito na linguagem: {lang} ",
+   "msg_mixed":"{} estão escritos na linguagem {lang} ",
+   "gender":{
+      "male":"Olá homem ;) {}",
+      "female":"Olá garota :) {}",
+      "other":"Olá  {}"
+   }
+}

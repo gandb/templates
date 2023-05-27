@@ -48,8 +48,8 @@
     }
 
     function createIDForModelName(){
-         console.log("createIDForModelName:start");
-        const selector = '#__next > div.overflow-hidden.w-full.h-full.relative.flex.z-0 > div > div > main > div.flex-1.overflow-hidden > div > div > div > div.flex.w-full.items-center.justify-center.gap-1.border-b.bg-gray-50.p-3';
+         //console.log("createIDForModelName:start");
+        const selector = '#__next > div > div > div > main > div > div > div > div > div.flex.items-center.justify-center';
         var element = document.querySelector(selector);
         if (!element) {
             console.log("Elemento não encontrado, id não modificado");
@@ -61,7 +61,7 @@
 
      function createAnchor(){
          const anchorId = MODEL_NAME_ID+"anchor";
-         console.log("createAnchor:start");
+        // console.log("createAnchor:start");
          var parent = document.getElementById(MODEL_NAME_ID);
         if (!parent) {
             console.log("Parent não encontrado, anchor não criada");
