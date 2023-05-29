@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Chat GPT Utils
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://chat.openai.com/*
@@ -95,12 +95,7 @@
         return "modelName";
     }
 
-
-
-    createModelDiv();
-
-    // Your code here...
-    setInterval(function() {
+    function updateAll() {
 
         let id = createIDForModelName();
 
@@ -118,7 +113,14 @@
 
         updateDiv(element.textContent);
 
-    }, 1000); // 30000 milissegundos = 30 segundos
+    }
+
+    createModelDiv();
+
+    updateAll();
+
+    // Your code here...
+    setInterval(updateAll, 10000); // 30000 milissegundos = 30 segundos
 
 
 })();
