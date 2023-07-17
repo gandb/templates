@@ -1,0 +1,7 @@
+A versão usada para estes templates são a versão abaixo:
+Sempre que for atualizar, atualize tudo ou nada e se atualizar, atualizar este arquivo com o flutter --version
+
+Flutter 3.11.0-6.0.pre.59 • channel master • https://github.com/flutter/flutter.git
+Framework • revision f6b23f1d80 (4 weeks ago) • 2023-05-13 13:00:40 -0400
+Engine • revision 96bd553491
+Tools • Dart 3.1.0 (build 3.1.0-109.0.dev) • DevTools 2.23.1
