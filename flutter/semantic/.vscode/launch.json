@@ -1,0 +1,37 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "dart",
+            "request": "launch",
+            "name": "Windows",
+            "flutterMode": "debug",
+            
+        },
+        {
+            "name": "Flutter for web",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "args": [
+              "-d",
+              "chrome"
+            ]
+          },
+          {
+              "name": "Flutter for web semantic",
+              "type": "dart",
+              "request": "launch",
+              "program": "lib/main.dart",
+              "args": [
+                "-d",
+                "chrome",
+                " --dart-define=FLUTTER_WEB_DEBUG_SHOW_SEMANTICS=true"
+              ]
+            },
+
+    ]
+}
