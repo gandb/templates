@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minha Primeira Página</title>
+        <meta charset="UTF-8">
+        <script>
+            document.addEventListener('DOMContentLoaded',onLoad);
+
+            function onLoad(){             
+                 document.getElementById("botao").onclick = (e)=>{
+                    if(e.target.innerHTML=="aperte-me")
+                        e.target.innerHTML = "apertado";
+                    else
+                        e.target.innerHTML = "aperte-me";
+                     
+                };
+
+                setTimeout(()=>{
+                    document.getElementById("botao").click();
+
+                   
+                } ,3000);//3s
+
+                
+
+                document.getElementById("updateUser").onclick = (e)=>{
+                    alert("Atualizado com sucesso!");
+                    console.log("teste");
+                } ;
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <a href="#">Home</a>
+        </header>
+        <div>
+            <h1>Hello World</h1>
+            <p>Este é um parágrafo de exemplo para a sua página HTML básica. O HTML é uma linguagem de marcação que é usada para estruturar e apresentar conteúdo na Web.</p>
+            <button id="botao" >aperte-me</button>
+        </div>
+        <div>
+            <input type="radio" class="gender" value="Maculino">
+            <input type="radio" class="gender" value="Feminino">
+            <input type="radio" class="gender" value="Outro">
+        </div>
+
+        <div>
+            Pizza <input type="checkbox" class="food" value="pizza">
+            Coke <input type="checkbox" class="food" value="coke">
+            Pepper <input type="checkbox" class="food" value="pepper">
+        </div>
+
+        
+        <div>
+            Name <input type="name" class="name" value=" ">
+            Email <input type="email" class="email" value="">
+            <button  id="updateUser">Atualizar</button>
+        </div>
+    </body>
+</html>
