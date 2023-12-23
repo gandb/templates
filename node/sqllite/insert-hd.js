@@ -1,6 +1,5 @@
 const sqlite3 = require('sqlite3').verbose(); 
-
-let insertCount=1;
+ 
 
 let db = null;
  
@@ -13,7 +12,12 @@ let db = null;
     console.log("Iniciando worker "  );
   
    // const dbTemp =  await AsyncDatabase.open(':memory:');
-   const dbTemp = new sqlite3.Database(':memory:'); 
+   let dbTemp = new sqlite3.Database('./db/characters2.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log('Connected to the file  SQlite database.');
+  });
    //console.log("init:20");
     
     dbTemp.run(
@@ -31,8 +35,7 @@ let db = null;
             const sql = "INSERT INTO characters (name,cod)  VALUES ('kenzo','012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789')";  
             if(verbose)   console.log("worker:debug45",sql);
             db.run(sql,()=>{
-                if(verbose)   console.log("Inserido! ");
-              insertCount++;
+                if(verbose)   console.log("Inserido! "); 
               resolve();
              }); 
         }) ;
@@ -77,7 +80,6 @@ let db = null;
         if(verbose)    console.log("insert:debug31");
     }
 
-return "Finalizado worker!";
-//    return insertCount;
+return "Finalizado worker!"; 
   
 };

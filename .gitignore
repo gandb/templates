@@ -70,3 +70,5 @@ flutter/m4s1-main/
 flutter/m4s2-main/
 *.log
 node/winston/*-audit.json
+*.db
+*.db-journal

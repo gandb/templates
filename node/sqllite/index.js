@@ -4,7 +4,10 @@ const sqlite3 = require('sqlite3').verbose();
 const { AsyncDatabase } = require("promised-sqlite3"); 
 
 const WorkerNodes = require('worker-nodes');
-const insertWorker = new WorkerNodes(require.resolve('./insert'),{maxWorkers :1});
+const insertWorkerMemory = new WorkerNodes(require.resolve('./insert'),{maxWorkers :1});
+const insertWorkerHD = new WorkerNodes(require.resolve('./insert-hd'),{maxWorkers :1});
+const insertWorkerBetterMemory = new WorkerNodes(require.resolve('./insert-bettersqllite'),{maxWorkers :1});
+const insertWorkerBetterHD = new WorkerNodes(require.resolve('./insert-bettersqllite-hd'),{maxWorkers :1});
 
 //insertWorker.call('teste').then(msg => console.log(msg));  // -> 'hello from separate process!'
 
@@ -56,7 +59,7 @@ function normalTest(db) {
   return promisse;
 }
  
-function writePerformanceTest(verbose,dump,times,granul) { 
+function writePerformanceTest(insertWorker,verbose,dump,times,granul) { 
   let first = true;
   const ret = new Promise((resolve,reject)=>{
     const startTimeWrite = performance.now();
@@ -104,34 +107,50 @@ function writePerformanceTest(verbose,dump,times,granul) {
 
 
 
-async function runMemoryDBPerformance() {
+async function runMemoryDBPerformance(insertWorker,options) {
  
  
+  if(!options || options.all || options.tiny)
+  {
 
-  let timeWrite =  await writePerformanceTest(false,true,TIMES_TEST_TINY,10); 
-  console.log("memory DB Write test for line is " + (timeWrite/(1000*TIMES_TEST_TINY)) + "s in a tiny table.") ; 
-  let startMemory = process.memoryUsage().rss; 
-  console.log("Total memory used  " ,  startMemory/(1024*1024) + "Mb" );
+    let timeWrite =  await writePerformanceTest(insertWorker,false,true,TIMES_TEST_TINY,10); 
+    console.log("memory DB Write test for line is " + (timeWrite/(1000*TIMES_TEST_TINY)) + "s in a tiny table.") ; 
+    let startMemory = process.memoryUsage().rss; 
+    console.log("Total memory used  " ,  startMemory/(1024*1024) + "Mb" );
+  
+  }
  
+  if(!options || options.all || options.small)
+  {
+
+    timeWrite =  await writePerformanceTest(insertWorker,false,true,TIMES_TEST_SMALL,100); 
+    console.log("memory DB Write test for line is "  + (timeWrite/(1000*TIMES_TEST_SMALL)) + "s in a small table.");  
+    startMemory = process.memoryUsage().rss;
+    console.log("Total memory used  " ,  startMemory/(1024*1024) + "Mb" );
+  }
+
+   
+  if(!options || options.all || options.medium)
+  {
+
+    timeWrite =  await writePerformanceTest(insertWorker,false,true,TIMES_TEST_MEDIUM,100); 
+    console.log("memory DB Write test for line is "  + (timeWrite/(1000*TIMES_TEST_MEDIUM)) + "s in a normal table."); 
+    startMemory = process.memoryUsage().rss; 
+    console.log("Total memory used  " ,  startMemory/(1024*1024) + "Mb" );
+  }
+
+
+  if(!options || options.all || options.big)
+  {
+
 
  
-  timeWrite =  await writePerformanceTest(false,true,TIMES_TEST_SMALL,100); 
-  console.log("memory DB Write test for line is "  + (timeWrite/(1000*TIMES_TEST_SMALL)) + "s in a small table.");  
-  startMemory = process.memoryUsage().rss;
-  console.log("Total memory used  " ,  startMemory/(1024*1024) + "Mb" );
+    timeWrite =  await writePerformanceTest(insertWorker,false,true,TIMES_TEST_BIG,200); 
+    console.log("memory DB Write test for line is "  + (timeWrite/(1000*TIMES_TEST_BIG)) + "s in a big table.");  
+    startMemory = process.memoryUsage().rss;
+    console.log("Total memory used  " ,  startMemory/(1024*1024) + "Mb" );
+  }
  
-  timeWrite =  await writePerformanceTest(false,true,TIMES_TEST_MEDIUM,100); 
-  console.log("memory DB Write test for line is "  + (timeWrite/(1000*TIMES_TEST_MEDIUM)) + "s in a normal table."); 
-  startMemory = process.memoryUsage().rss; 
-  console.log("Total memory used  " ,  startMemory/(1024*1024) + "Mb" );
-
-  /*
-  timeWrite =  await writePerformanceTest(false,true,TIMES_TEST_BIG/2,100); 
-  timeWrite +=  await writePerformanceTest(false,TIMES_TEST_BIG/2,100); 
-  console.log("memory DB Write test for line is "  + (timeWrite/(1000*TIMES_TEST_BIG)) + "s in a big table.");  
-  startMemory = process.memoryUsage().rss;
-  console.log("Total memory used  " ,  startMemory/(1024*1024) + "Mb" );
- */
  
 }
 
@@ -235,8 +254,12 @@ async function runAsyncDB() {
 }
 
 (async () => {
-  await runFileDB();
-  await runMemoryDB();
-  await runAsyncDB();
-  await runMemoryDBPerformance();
+ // await runFileDB();
+ // await runMemoryDB();
+ // await runAsyncDB();
+ // await runMemoryDBPerformance(insertWorkerMemory,{tiny:true,small:true,medium:false,big:false}); 
+// await runMemoryDBPerformance(insertWorkerHD,{all:true}); 
+ //await runMemoryDBPerformance(insertWorkerBetterMemory,{tiny:true,small:true,medium:true,big:true}); 
+ await runMemoryDBPerformance(insertWorkerBetterHD,{all:true}); 
+  
 })();
