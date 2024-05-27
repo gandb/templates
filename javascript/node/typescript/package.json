@@ -1,0 +1,32 @@
+{
+  "name": "vriend-common-ajax",
+  "version": "1.0.2",
+  "description": "Ajax common",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Building project...\" && tsc && echo \"Building SUCCESS!!!\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gandb/vriend-common-ajax"
+  },
+  "keywords": [
+    "ajax",
+    "vanilla",
+    "javascript"
+  ],
+  "author": "gandb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gandb/vriend-common-ajax"
+  },
+  "homepage": "https://github.com/gandb/vriend-common-ajax#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.5.0",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.4000"
+  }
+}

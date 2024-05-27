@@ -1,0 +1,25 @@
+{
+  "tags": [
+    {
+      "label": "my-component",
+      "description": "",
+      "attributes": [
+        {
+          "label": "first",
+          "description": "The first name",
+          "required": false
+        },
+        {
+          "label": "last",
+          "description": "The last name",
+          "required": false
+        },
+        {
+          "label": "middle",
+          "description": "The middle name",
+          "required": false
+        }
+      ]
+    }
+  ]
+}

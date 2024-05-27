@@ -1,0 +1,24 @@
+{
+  "name": "vriend-node-module",
+  "version": "1.0.6",
+  "description": "A simple package npm module example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vriendco/vpc.git"
+  },
+  "keywords": [
+    "npm",
+    "module",
+    "javascript"
+  ],
+  "author": "gandb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vriendco/vpc/issues"
+  },
+  "homepage": "https://github.com/vriendco/vpc#readme"
+}

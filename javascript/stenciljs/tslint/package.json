@@ -1,0 +1,28 @@
+{
+  "name": "tslint-eg",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "unpkg": "dist/ionic.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "lint": "tslint --project src/tslint.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@stencil/core": "~0.16.2",
+    "tslint": "^5.13.1",
+    "tslint-ionic-rules": "0.0.21",
+    "typescript": "^3.3.3333"
+  },
+  "license": "MIT"
+}

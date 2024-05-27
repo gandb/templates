@@ -1,0 +1,12 @@
+Documentação : https://stenciljs.com/
+
+1-) Esse projeto é inspirado na prova de conceito hello world
+
+2-) A diferença está no componente, my-component.tsx que ele utiliza o Watch. 
+
+Precisa importar a anotação Watch e depois a sintaxe é:
+
+ @Watch('nome-do-atributo-propriedade')
+  watchHandler(newValue: boolean, oldValue: boolean) {
+    
+  }

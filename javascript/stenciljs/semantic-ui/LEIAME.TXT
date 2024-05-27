@@ -1,0 +1,39 @@
+Documentação :  https://semantic-ui.com/
+
+1-) Instale um projeto stencil seguindo as instruções de um dos outrps pcs.
+
+2-) Instale o gulp (só é necessário se não tiver gulp instalado):
+#sudo npm install -g gulp
+
+3-) Instale o semantic ui :
+#npm install semantic-ui --save
+
+3.1-) Pode-se escolher a opção Custsom e  aceitar todas as opções default, exceto a opção abaixo:
+ 
+ Where should we put Semantic UI inside your project? (semantic/) 
+
+Mude para:
+/src/assets/semantic 
+
+4-) Compile o semantic-ui:
+#cd src/assets/semantic/
+#gulp build
+
+5-) Copiar diretório semantic para a pasta www, criar a pasta se não existir ainda -ela é criada após o primeiro build.
+
+6-) Adicione no html o seguinte :
+
+  <link rel="stylesheet" type="text/css" href="assets/semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="assets/semantic/dist/semantic.min.js"></script>
+
+7-) Adicione um componente, por ex:
+<button class="ui button">
+  Este é um botão ui
+</button>
+
+8-) Atualizar o semantic-ui para ultima versão, basta fazer :
+npm update

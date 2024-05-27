@@ -1,0 +1,21 @@
+Documentação : https://stenciljs.com/
+
+1-)
+#npm init stencil
+
+2-) Opção de app ( Minimal starter for building a Stencil app or website):
+
+Já vem com typescript, HMR
+
+OBSERVACOES: 
+
+1-) Ao comitar, igniorar diretórios:
+./node_modules
+./.stencil
+./www
+./dist
+
+2-) A pasta ./www é a distribuição
+
+3-) atualizar o stencil libary
+npm install @stencil/core@latest --save-exact

@@ -1,0 +1,54 @@
+ 
+
+/*componente da lista*/
+   
+
+.v-time-set-input
+{
+    height: 2.5em;
+    width: 30%;
+    margin: 30%;
+    font-size: 28px;
+    padding: 0.3em;
+}
+
+.v-time-set-text
+{ 
+    width: 94%;
+    margin: 3%;
+    margin-top: 1em;
+}
+
+.v-time-set button
+{
+    margin-top: 1em;
+    margin-left:30%;
+    margin-right:30%;
+    width:30%;
+    height: 2em;
+}
+
+.v-add-alarm button
+{
+    width: 8em;
+}
+
+.v-add-alarm .v-set-time-save
+{
+    margin-left:15%;
+}
+
+.v-add-alarm .v-modal-default-button
+{
+    margin-right:15%;
+} 
+
+.card .description
+{
+    margin-bottom: 1em;
+} 
+
+.v-alarm-icon
+{
+    float: right;
+}

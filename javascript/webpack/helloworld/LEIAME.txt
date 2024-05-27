@@ -1,0 +1,10 @@
+# Webpack Frontend Starterkit (https://github.com/wbkd/webpack-starter)
+
+ 
+ IMPORTANTE: 
+
+1-)Features:
+* HMR
+* Dev server using #npm run start
+
+2-) Ao utilizar esse diretório, copiar também os arquivos ocultos.

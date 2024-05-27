@@ -1,0 +1,8 @@
+1-) Esse exemplo foi criado para explicar como usar o modulo criado em ../node-module
+
+2-) Para instalar, faça 
+#npm i vriend-node-module --save
+
+3-) Para usar basta importar como se estivsse na raiz do projeto:
+import soma from 'vriend-node-module';
+

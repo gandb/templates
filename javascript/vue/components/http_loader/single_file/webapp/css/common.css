@@ -1,0 +1,120 @@
+
+ /*
+ Use sempre o padrão http://smacss.com/ 
+ Todas as classes com t- são smacss.
+ */
+ 
+ /*SMACSS - BEGIN*/
+
+ .v-body
+{
+  background-color: steelblue;
+  padding: 1em;
+}
+ .v-body > div
+ {
+    background-color: white;
+    padding: 2em;
+ } 
+ .v-containner
+ {
+  box-sizing: border-box;
+ 	display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal; 
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-align-content: space-between;
+  -ms-flex-line-pack: justify;
+  align-content: space-between;
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+ }
+
+
+.v-containner.v-containner-row {
+  -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+ }
+ 
+.v-containner.v-containner-collumn{
+  -webkit-flex-direction:  column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+ }
+  
+ 
+
+.v-no-flat-box
+{
+	-webkit-border-radius: 10px;
+	border-radius: 10px; 
+}
+ 
+.v-error
+{
+	color: red;
+	font-weight: bold;
+
+}
+  
+.v-unique-content
+{     
+    display: flex;
+    justify-content: center;
+ }
+ 
+ .v-unique-content-importantless
+{     
+    display: flex;
+    justify-content:right ;
+ }
+ 
+
+.v-section
+{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.v-main
+{
+  margin-bottom: 1em;
+}
+
+.v-main >div
+{
+    width: 90%; 
+    margin-top: 0.5em;
+    padding: 0.5em; 
+}
+.v-main.v-containner  
+{
+    margin-top: 0em;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: auto;
+}
+
+.v-main >div .ui.list 
+{
+  margin-top: 0px;
+}

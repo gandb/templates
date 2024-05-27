@@ -1,0 +1,4 @@
+Documentação : https://stenciljs.com/
+
+1-) Depois de iniciar um projeto stenciljs (ver os outros pcs para ver como faz).
+ 

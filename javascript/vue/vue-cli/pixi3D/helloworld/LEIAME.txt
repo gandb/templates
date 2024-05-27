@@ -1,0 +1,4 @@
+Siga os passos para criar uma aplicação VUE, depois:
+1-) instale :
+#npm install pixi.js --save
+#npm install @types/pixi.js --save

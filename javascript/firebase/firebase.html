@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<!-- tecnologias estudadas: vue, foundation-->
+<html>
+<HEAD>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+   
+
+	<!--start jquery-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin=anonymous"></script>
+	<!--end jquery-->
+
+	<!--start vue-->
+	<!-- development version, includes helpful console warnings -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!--end vue--> 
+	
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-messaging.js"></script>
+
+
+	
+	</HEAD>
+
+<body>
+
+<div id="app" >
+  
+</div>
+
+	<SCRIPT>
+	
+	initDb(firebase);
+	
+	function initDb(firebase)
+	{
+	//painel
+			//https://console.firebase.google.com/u/0/project/v-alert/database/firestore/data~2Fusers~2FCNsN7EbPoKk4sn6gsSwu
+	// Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyBVZ8DF8TeMWI7vCE7gG-HphflFJR0OZPE",
+		authDomain: "v-alert.firebaseapp.com",
+		databaseURL: "https://v-alert.firebaseio.com",
+		projectId: "v-alert",
+		storageBucket: "",
+		messagingSenderId: "670528607056",
+		timestampsInSnapshots: true
+	  };
+	     
+  
+	  firebase.initializeApp(config);
+	  
+	  const firestore = firebase.firestore();
+	   
+		
+		// Initialize Cloud Firestore through Firebase
+		var db = firebase.firestore();
+
+			db.collection("users").add({
+			email: "Ada",
+			name: "Lovelace",
+			alarms: [
+				{
+					time:"01:00",
+					enabled:true,
+					description:"Sair"
+				}
+			]
+		})
+		.then(function(docRef) {
+			console.log("Document written with ID: ", docRef.id);
+		})
+		.catch(function(error) {
+			console.error("Error adding document: ", error);
+		});
+		
+			
+
+		db.collection("users").get().then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+				console.log(`${doc.id} => ${doc.data()}`);
+				console.log(doc.data());
+			});
+		});
+		
+	}
+	  
+	new Vue({
+	  el: '#app',
+	  data: () => ({
+		//
+	  })
+	})
+	</SCRIPT>
+	
+</body>
+</html>
+
+ 

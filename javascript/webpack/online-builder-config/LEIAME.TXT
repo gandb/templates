@@ -1,0 +1,15 @@
+Gerando online:
+
+1-) Adicione um arquivo package.json vazio (  apenas com :
+"scripts": {
+    "build": "webpack --config webpack.config.js  --colors",
+    "start": "webpack-dev-server --open --config webpack.config.js"
+  },
+  
+
+2-) Configure seu projeto em :
+https://webpack-config-plugins.js.org/
+
+3-) Rode a instalação edepois salve o arquivo webpack.config.js
+
+4-) Adicione uma pasta src e dentro um arquivo index.ts (se for typescript) ou index.js (se for js)

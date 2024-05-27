@@ -1,0 +1,4 @@
+1-) Nesse exemplo, o que fica na raiz vira static assets, então nesse exemplo foi movido a pasta dist do stencil com o nome assets/component/[nomedocomponente]/[nomedocomponente].js
+2-) No head, importa-se assim:
+
+  <script  src='assets/components/mycomponent/mycomponent.js'></script>

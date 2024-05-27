@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC>
+<html>
+
+<Head>
+    <link rel="SHORTCUT ICON" href="/imgs/logo.ico" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Subject" content="Alarm Time">
+
+    <meta name="Publisher" content="Vriend Softwares" />
+    <meta name="Revisit-After" content="1" />
+    <meta name="Robots" content="index,follow" />
+    <meta name="Googlebot" content="INDEX, FOLLOW" />
+    <meta name="distribution" content="global" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+	<script src = "node_modules/clientside-require/dist/bundle.js"></script>
+	<script src = "node_modules/vue/dist/vue.js"></script>
+	<script src = "node_modules/http-vue-loader/src/httpVueLoader.js"></script> 
+   	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ 
+
+    <link href="css/common.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+
+		<SCRIPT>
+			console.log("start load colorname");
+ 
+
+		load("color-name").then( function (color_name) 
+		{
+	        console.log(color_name.blue); // outputs  [0, 0, 255]
+		});
+
+		console.log("start load index");
+		load("/scripts/index.js").then(function(index)
+		{
+			console.log(index.testar());
+		});
+
+		 
+
+		</SCRIPT>
+
+  
+
+
+</HEAD>
+
+<body class="v-body">
+	 <div id="app">
+			<P>{{ message }}</P>
+			<my-component>teste</my-component>
+			<v-adsense>teste</v-adsense>
+
+ 		 
+	</div>
+
+
+	 <script type="text/javascript">
+	 
+
+	         new Vue({
+            el: "#app",
+            data: {
+				adsense: {
+                    dataAdSlot: "8809413685",
+                    adClient: "ca-pub-6249383667038035"
+	            },
+                message: "Hello World!"
+            },
+		 	
+			components: {
+            	'my-component': httpVueLoader('/components/my-component.vue'),
+				'v-adsense': httpVueLoader('/components/v-adsense.vue')
+        	}
+        });
+	 
+		 
+       
+    </script>
+
+</body>
+
+</html>

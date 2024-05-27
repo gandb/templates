@@ -1,0 +1,24 @@
+Documentação : https://stenciljs.com/
+
+1-) Depois de iniciar um projeto stenciljs (ver os outros pcs para ver como faz), adicione a linha de comando:
+#npm install tslint tslint-ionic-rules typescript --save-dev
+2-) Adicione no diretório ./src o arquivo tslint.json com o conteúdo:
+
+{
+    "extends": "tslint-ionic-rules",
+    "rules": {
+        "ban-comma-operator": false,
+        "no-empty": [true, "allow-empty-catch"],
+        "no-floating-promises": true,
+        "no-import-side-effect": false,
+        "no-var-keyword": false,
+        "no-var-requires": false,
+        "prefer-conditional-expression": false
+    }
+}
+3-) Adicione no arquivo package.json na sessão de scripts, o script:
+
+    "lint": "tslint --project src/tslint.json"
+
+4-) Para rodar , basta efetuar o comando:
+#npm run lint

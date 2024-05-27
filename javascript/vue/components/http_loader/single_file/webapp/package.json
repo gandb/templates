@@ -1,0 +1,24 @@
+{
+  "name": "alarm",
+  "version": "1.0.0",
+  "description": "Webapp alarm thparty",
+  "main": "start.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "alarm"
+  ],
+  "author": "Edson Carli Jr",
+  "license": "SEE LICENSE IN license.txt",
+  "registry": "http://localhost:4873",
+  "private": "true",
+  "dependencies": {
+    "clientside-require": "^4.7.2",
+    "color-name": "^1.1.4",
+    "http-vue-loader": "^1.4.0",
+    "semantic-ui-vue": "^0.2.10",
+    "vue": "^2.5.22",
+    "vue-adsense": "^1.0.1"
+  }
+}

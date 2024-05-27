@@ -1,0 +1,16 @@
+{
+  "name": "require-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log('nenhum teste');"
+  },
+  "author": "Edson V C Jr",
+  "license": "ISC",
+  "dependencies": {
+    "clientside-require": "^4.7.2",
+    "color-name": "^1.1.4",
+    "express": "^4.16.4"
+  }
+}
