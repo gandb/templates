@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",                      // Use a versão mais recente do ECMAScript
+      "module": "ESNext",                      // Use o sistema de módulos ESNext
+      "moduleResolution": "node",              // Resolve módulos à maneira do Node.js
+      "outDir": "./dist",                      // Diretório de saída para os arquivos compilados
+      "rootDir": "./src",                      // Diretório raiz dos arquivos fonte
+      "esModuleInterop": true,                 // Habilita interoperabilidade com módulos CommonJS
+      "skipLibCheck": true,                    // Pula verificação de bibliotecas para acelerar a compilação
+      "forceConsistentCasingInFileNames": true // Garante a consistência de nomes de arquivos
+    },
+    "include": ["src"],                        // Inclui todos os arquivos TypeScript no diretório src
+    "exclude": ["node_modules"]                // Exclui o diretório node_modules
+  }
