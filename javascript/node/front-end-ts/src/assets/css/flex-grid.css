@@ -1,0 +1,80 @@
+body .fx-containner-default
+{  
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+
+	-webkit-align-content: stretch;
+	-ms-flex-line-pack: stretch;
+	align-content: stretch;	
+}
+
+body .fx-space-between
+{
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+}
+
+/*
+Diferença entre tipos :
+type-0 : column em celular e row em desktop
+type-1 :  collumn  
+type-2 :  row
+*/
+
+@media only screen  and (orientation:portrait){
+	/* Retrato*/
+
+	body .fx-containner-default.fx-type-0
+	{
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+
+ }
+
+@media only screen a and (orientation:landscape) {
+	/*  Paisagem*/
+	body .fx-containner-default.fx-type-0
+	{
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+}
+
+body .fx-containner-default.fx-type-1
+{
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+body .fx-containner-default.fx-type-2
+{
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+body .fx-item
+{
+	-webkit-flex: 0 1 auto;
+	-ms-flex: 0 1 auto;
+	flex: 0 1 auto;
+	-webkit-align-self: auto;
+	-ms-flex-item-align: auto;
+	align-self: auto;
+}
+ 

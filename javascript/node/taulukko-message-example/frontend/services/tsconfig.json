@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs"
+  },
+  "include": [
+    "./**/*.ts" 
+  ],
+  "exclude":[
+    "./demos/*",
+    "./**/bin/*",
+    "./node_modules" 
+  ]
+  ,
+    "typeRoots": [
+        "node_modules/@types"
+    ]
+}

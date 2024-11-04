@@ -1,0 +1,195 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "log\\.6573175f3310681e4cd7beff7a8f795b211edd66-audit.json",
+    "files": [
+        {
+            "date": 1730291817913,
+            "name": "log\\taulukko-messages-202410301236.log",
+            "hash": "a31b7403d8374e7f9d9095854113a49977d24c9b64cc6871812c3d819897c1cd"
+        },
+        {
+            "date": 1730291937228,
+            "name": "log\\taulukko-messages-202410301238.log",
+            "hash": "13091ad89f1f2fc501757293c75db259342da0dc4d2619c9c2eaf2246f7f8d5a"
+        },
+        {
+            "date": 1730292065076,
+            "name": "log\\taulukko-messages-202410301241.log",
+            "hash": "89a85cb37980b3f29532b210cc4d5dfcf6b630e6dd4d08dd09750cd8b23ae57f"
+        },
+        {
+            "date": 1730292156046,
+            "name": "log\\taulukko-messages-202410301242.log",
+            "hash": "4f5c25210ea6ffbd1c76c7ec88af366c5ad686c425ae80724ef108cc09213a0d"
+        },
+        {
+            "date": 1730292289352,
+            "name": "log\\taulukko-messages-202410301244.log",
+            "hash": "1d76da12fcbf1c5ec5ae3b58396e8cd481eef7214cb7084e86237b25b6c153a9"
+        },
+        {
+            "date": 1730292412569,
+            "name": "log\\taulukko-messages-202410301246.log",
+            "hash": "90e19f8496e8ff80b16a37ab3630b50665e2f185f232b70c509d0d5f86fa9d44"
+        },
+        {
+            "date": 1730292460374,
+            "name": "log\\taulukko-messages-202410301247.log",
+            "hash": "252f838b24a7a912f42f7d533163aaa0e02f7e32c8ecefc4496d8d2288033231"
+        },
+        {
+            "date": 1730292639135,
+            "name": "log\\taulukko-messages-202410301250.log",
+            "hash": "d48deda4aa4d75b48c554087e80ad8d025a5e8f09b2964c9898e37d7a17637f3"
+        },
+        {
+            "date": 1730292723817,
+            "name": "log\\taulukko-messages-202410301252.log",
+            "hash": "18276397e9c223fba1ba0c3095ca9bd13be266698a0c1022f756333172f0aa3d"
+        },
+        {
+            "date": 1730292827819,
+            "name": "log\\taulukko-messages-202410301253.log",
+            "hash": "f7e3feb393cf4ab96c1121914806bad7201fd2e237369d91aaf11c3e9bea3615"
+        },
+        {
+            "date": 1730292962901,
+            "name": "log\\taulukko-messages-202410301256.log",
+            "hash": "50486eb4f1e4c20f557de6381d72ff26b95f07c8acad81f6be516da6a9c213a1"
+        },
+        {
+            "date": 1730293175368,
+            "name": "log\\taulukko-messages-202410301259.log",
+            "hash": "caa52cb4fc83580491bbad9d63d0ffe243a184b2faffbb35d73e89fbecedb48b"
+        },
+        {
+            "date": 1730293277723,
+            "name": "log\\taulukko-messages-202410301301.log",
+            "hash": "32e85f9d78da1e1d94d9d542a6caf40b26878beeb2aa8d44f72d1126cb6a945b"
+        },
+        {
+            "date": 1730293340405,
+            "name": "log\\taulukko-messages-202410301302.log",
+            "hash": "beff7e8b0195d5ac5d3f201b000b2c16c8a9cea7d342e785da55d4c2858e6128"
+        },
+        {
+            "date": 1730293594111,
+            "name": "log\\taulukko-messages-202410301306.log",
+            "hash": "5c46d38bcb7ceb765b6534c9855e4f7fc865da91ce6669b646c2a019817f5398"
+        },
+        {
+            "date": 1730293621357,
+            "name": "log\\taulukko-messages-202410301307.log",
+            "hash": "53f210e926450c32e16d5793dae9fcdd054a488f5959969c749e9955a990e099"
+        },
+        {
+            "date": 1730293727920,
+            "name": "log\\taulukko-messages-202410301308.log",
+            "hash": "448e2e7698614cb8a8bf4cc5a24dde60009a19acc03c507c1f02eb8a40ecba00"
+        },
+        {
+            "date": 1730646373029,
+            "name": "log\\taulukko-messages-202411031506.log",
+            "hash": "cd5a6e95d31ae00800bb0d00e2d447f2710cb91d508b35f70b31c8c053fac7b2"
+        },
+        {
+            "date": 1730646468329,
+            "name": "log\\taulukko-messages-202411031507.log",
+            "hash": "442c89cc45aa788a68361807b09b30c0cc6ba5c03920114bd1803621c732736f"
+        },
+        {
+            "date": 1730646585667,
+            "name": "log\\taulukko-messages-202411031509.log",
+            "hash": "f847d3112d20cd5628b6402cd9ed70ebd38b201ec7c58043884834cc81b30cd6"
+        },
+        {
+            "date": 1730648022212,
+            "name": "log\\taulukko-messages-202411031533.log",
+            "hash": "ef3330e7fde0b3b556666ebaff8f39ac076d4bd3f432369b3b0b23bdfe475e67"
+        },
+        {
+            "date": 1730648269527,
+            "name": "log\\taulukko-messages-202411031537.log",
+            "hash": "59ea41eaa857397c4a6454c43c37eac4bbb3304e5f337f7150b913a79587d7c3"
+        },
+        {
+            "date": 1730648310408,
+            "name": "log\\taulukko-messages-202411031538.log",
+            "hash": "7d3cc830fce7f6b75f81d535fa7106040eec7d770758b9144e83472f7ee0a4a8"
+        },
+        {
+            "date": 1730648456179,
+            "name": "log\\taulukko-messages-202411031540.log",
+            "hash": "41844bddefb20df7e544307b92f84b26196c29203d7b3b91512c0c6a326f0569"
+        },
+        {
+            "date": 1730648500641,
+            "name": "log\\taulukko-messages-202411031541.log",
+            "hash": "8c114c7aadca357f2271f388b47f6a312ebd1b93c4f96e03fba9bd7c23ad003d"
+        },
+        {
+            "date": 1730648583382,
+            "name": "log\\taulukko-messages-202411031543.log",
+            "hash": "2da969bf2f80be943745b57b0eb38e19d4715b6580bc77b43bd5ab0d765c7ed7"
+        },
+        {
+            "date": 1730648839748,
+            "name": "log\\taulukko-messages-202411031547.log",
+            "hash": "03973ef03025e1715769782aaa2116df8e5fd4f33a8d4251593fb5ad00ada68d"
+        },
+        {
+            "date": 1730648903806,
+            "name": "log\\taulukko-messages-202411031548.log",
+            "hash": "9475280bd8011a23338b4d1976a427d9b8fd77c39d2cd0d9580563e7a876c3f4"
+        },
+        {
+            "date": 1730648963325,
+            "name": "log\\taulukko-messages-202411031549.log",
+            "hash": "199d094f61918788cb681737255d3ea500797a9bb670b87b7570456e3b0ac484"
+        },
+        {
+            "date": 1730649031308,
+            "name": "log\\taulukko-messages-202411031550.log",
+            "hash": "e7a5d0270d75c4becc96aae0dc58ae474b3cbee3d2b646a94753c8f58c7bb159"
+        },
+        {
+            "date": 1730649120042,
+            "name": "log\\taulukko-messages-202411031552.log",
+            "hash": "3c21f7fffc2e7b4c71f7015ed01233c9d8330709e27d5494e4478fa71a0782bc"
+        },
+        {
+            "date": 1730649218061,
+            "name": "log\\taulukko-messages-202411031553.log",
+            "hash": "031d0a6e62da55efd0f219f22cb3cc4518139d6aa456710b1baa996730bfe7cf"
+        },
+        {
+            "date": 1730649726937,
+            "name": "log\\taulukko-messages-202411031602.log",
+            "hash": "6310cd7b3d2c42ad2d76b3ce99a6665c5c67780dba4a78052ad82d5c4336b606"
+        },
+        {
+            "date": 1730649783424,
+            "name": "log\\taulukko-messages-202411031603.log",
+            "hash": "a5189879cd71085b22596755e60df6254b40bf21aa8173020851d12aa2f45e45"
+        },
+        {
+            "date": 1730649880447,
+            "name": "log\\taulukko-messages-202411031604.log",
+            "hash": "0c9e6c8f67ab5cfe1e5d7bd76bb6e6a113a4688abd354efea5e2546e4d11ceb8"
+        },
+        {
+            "date": 1730650186304,
+            "name": "log\\taulukko-messages-202411031609.log",
+            "hash": "85a62d70dfe4de3b2ec78a77958e93c2fa064804c2422650c6d0858526e75b50"
+        },
+        {
+            "date": 1730708748210,
+            "name": "log\\taulukko-messages-202411040825.log",
+            "hash": "3b0a0073b6709adf04df05c3efd2c055ad45edadf6184dcd2d3b2c65c3f3d0e3"
+        }
+    ],
+    "hashType": "sha256"
+}

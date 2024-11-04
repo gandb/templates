@@ -1,0 +1,25 @@
+/* https://sass-lang.com/*/
+
+.fadeIn{
+	transition: opacity .6s;
+}
+
+.fadeOut{
+	opacity: 0;
+}
+
+
+.fadeInVeryFast{
+	transition: opacity .2s;
+}
+.fadeInFast{
+	transition: opacity .4s;
+}
+.fadeInSlow{
+	transition: opacity 1s;
+}
+.fadeInVerySlow{
+	transition: opacity 2s;
+}
+
+ 

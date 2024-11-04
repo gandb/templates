@@ -1,0 +1,2 @@
+* * * * * bash /REMOTE/front-end/docker/sync.sh>>/var/log/cron.log
+#a ultima linha tem que ser um comentario ou comando

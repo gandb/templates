@@ -1,0 +1,201 @@
+
+/* Portrait */
+@media only screen  
+and (orientation: portrait)  {
+	body > div
+	{
+		width: 200vw;
+	}
+}
+
+.st-mobile .t-field
+{
+    font-size: 60px;
+}
+
+
+#outergame .st-mobile *{
+	font-size:var( --lv1-half-mobile-font-size); 
+}
+
+#outergame .st-mobile *.max-.min-font-size, #outergame .st-mobile .min-font-size * {
+	font-size:var( --min-mobile-font-size); 
+}
+/*Headers*/
+/*#outergame esta sendo usado para sobrepor o ui semantic*/
+#outergame .st-mobile h1 {
+	font-size: var( --lv5-mobile-font-size); 
+}
+#outergame .st-mobile h1 .sub
+{
+	font-size: var( --lv4-mobile-font-size); 
+}
+#outergame .st-mobile h2 {
+	font-size: var( --lv4-mobile-font-size); 
+}
+#outergame .st-mobile h2 .sub
+{
+	font-size:var( --lv3-mobile-font-size); 
+}
+#outergame .st-mobile h3{
+	font-size:var( --lv3-half-mobile-font-size); 
+}
+#outergame .st-mobile h3 .sub
+{
+	font-size: var( --lv3-mobile-font-size); 
+}
+#outergame .st-mobile h4{
+	font-size: var( --lv3-mobile-font-size); 
+}
+#outergame .st-mobile h4 .sub
+{
+	font-size: var( --lv2-mobile-font-size); 
+}
+#outergame .st-mobile h5 {
+	font-size: var( --lv2-mobile-font-size); 
+}
+#outergame .st-mobile h5 .sub
+{
+	font-size: var( --lv1-half-mobile-font-size); 
+}
+#outergame .st-mobile h6 {
+	font-size: var( --lv2-mobile-font-size); 
+}
+#outergame .st-mobile h6 .sub
+{
+	font-size:var( --lv1-half-mobile-font-size); 
+}
+/*fim headers*/
+
+
+/*fontes*/  
+#outergame .st-mobile .t-lv0-font-size
+{
+	font-size:var(--lv0-mobile-font-size);
+}
+
+#outergame .st-mobile .t-lv0-half-font-size
+{
+	font-size:var(--lv0-half-mobile-font-size);
+}
+
+#outergame .st-mobile .t-lv1-font-size
+{
+	font-size:var(--lv1-mobile-font-size);
+}
+
+#outergame .st-mobile .t-lv1-half-font-size
+{
+	font-size:var(--lv1-half-mobile-font-size);
+}
+
+#outergame .st-mobile .t-lv2-font-size
+{
+	font-size:var(--lv2-mobile-font-size);
+}
+
+.t-half-font-size-lv2
+{
+	font-size:var(--lv2-half-mobile-font-size);
+}
+
+
+#outergame .st-mobile .t-lv3-font-size
+{
+	font-size:var(--lv3-mobile-font-size);
+}
+
+#outergame .st-mobile .t-lv3-half-font-size
+{
+	font-size:var(--lv3-half-mobile-font-size);
+}
+
+
+#outergame .st-mobile .t-lv4-font-size
+{
+	font-size:var(--lv4-mobile-font-size);
+}
+
+#outergame .st-mobile .t-lv4-half-font-size
+{
+	font-size:var(--lv4-half-mobile-font-size);
+}
+
+
+#outergame .st-mobile .t-lv5-font-size
+{
+	font-size:var(--lv5-mobile-font-size);
+}
+
+#outergame .st-mobile .t-lv5-half-font-size
+{
+	font-size:var(--lv5-half-mobile-font-size);
+}
+ 
+#outergame .st-mobile .t-lv6-font-size
+{
+	font-size:var(--lv6-mobile-font-size);
+}
+
+#outergame .st-mobile .t-lv5-half-font-size
+{
+	font-size:var(--lv6-half-mobile-font-size);
+}
+ 
+#outergame .st-mobile .t-min-font-size
+{
+	font-size:var(--min-mobile-font-size);
+}
+#outergame .st-mobile .t-half-font-size
+{
+	font-size:var(--half-mobile-font-size);
+}
+#outergame .st-mobile .t-max-font-size
+{
+	font-size:var(--max-mobile-font-size);
+} 
+
+
+@media only screen and  (orientation:portrait){
+	/*Mobile Orientação Retrato*/ 
+	*{
+		font-size: 34px;
+		font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif; 
+	}
+	.ui.button, .ui.buttons .button, .ui.buttons .or 
+	{
+		font-size: 34px;
+	}
+	.ui.divider 
+	{
+		font-size: 34px;
+	}
+	
+
+	#outergame{
+		padding-left: 30px;
+	} 
+	#outergame{
+		padding-right: 70px;
+	} 
+
+	#outergame .t-body{
+		background-color: white;
+
+	}
+
+	#outergame form  .field label,
+	#outergame .t-body form button
+	{
+		font-size: var(--lv4-mobile-font-size,72px);
+		line-height:var(--lv4-mobile-font-size,72px);
+	}
+	
+	#outergame form  .field input,
+	#outergame form  .field textarea
+	{
+		font-size: var(--lv3-mobile-font-size,48px);
+		line-height:var(--lv3-mobile-font-size,48px);
+	}
+}
+ 

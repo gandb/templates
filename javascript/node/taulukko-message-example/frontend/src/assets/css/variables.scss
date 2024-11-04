@@ -1,0 +1,170 @@
+/* https://sass-lang.com/*/
+:root {
+	/*Layers*/
+	--zunder-lv0:0;
+	--zunder-lv1:1000;
+	--zunder-lv2:2000;
+	--zunder-lv3:3000;
+	--zunder-lv4:3000;
+	--zunder-lv5:3000;
+	--zunder-lv6:3000;
+
+	--znormal-lv0:100000;
+	--znormal-lv1:110000;
+	--znormal-lv2:120000;
+	--znormal-lv3:130000;
+	--znormal-lv4:140000;
+	--znormal-lv5:150000;
+	--znormal-lv6:160000;
+
+
+	--zabove-lv0:200000;
+	--zabove-lv1:210000;
+	--zabove-lv2:220000;
+	--zabove-lv3:230000;
+	--zabove-lv4:240000;
+	--zabove-lv5:250000;
+	--zabove-lv6:260000;
+
+
+	--zmodal-lv0:300000;
+	--zmodal-lv1:310000;
+	--zmodal-lv2:320000;
+	--zmodal-lv3:330000;
+	--zmodal-lv4:340000;
+	--zmodal-lv5:350000;
+	--zmodal-lv6:360000;
+
+
+	/*Colors*/
+	--min-gray: #e0e1e2 ;
+	--half-gray: #666;
+	--max-gray: #333;
+	--half-white:rgb(249, 250, 251);
+	--min-black:#1b1c1d;
+	--half-green:rgb(33, 186, 69);
+	--max-green : rgb(15, 165, 51);
+	--min-red:#E8ADAA;
+	--half-red:#db2828;
+	--max-red:#d01919;
+	--min-blue : lightblue;
+	--half-blue : #2185d0;
+	--max-blue : #1678c2;
+	--half-negative: #db2828;
+	--max-negative:#d01919;
+	--min-negative:#E8ADAA;
+	--half-positive:#fcfff5;
+	--max-positive:#a3c293;
+	//especiais
+	--facebook-blue:rgb(66, 103, 178);
+	--taulukko-orange: #f2711c;
+	--game-credit: #CFE1E2; 
+	--game-chat-text:#ccccff;
+	--game-subscreen-text:#F7F2E0;
+	--game-paper:#F8ECC2;
+	
+	--black-min-transparent:rgba(0,0,0,.9);
+	--black-half-transparent:rgba(0,0,0,.7);
+	--black-max-transparent:rgba(0,0,0,.4);
+
+
+
+	/*Borders*/
+	--lv0-border-radius:5px;
+	--lv1-border-radius:8px;
+	--lv2-border-radius:12px;
+	--lv3-border-radius:20px;
+	--lv4-border-radius:35px;
+	--lv5-border-radius:60px;
+	--lv6-border-radius:100px;
+	--min-border-radius:var(--lv0-border-radius);
+	--half-border-radius:var(--lv3-border-radius);
+	--max-border-radius:var(--lv6-border-radius);
+	--min-border:1px;
+
+	/*Margins, Paddings, Left and Rights*/
+	--lv0-margin:5px;
+	--lv1-margin:10px;
+	--lv2-margin:20px;
+	--lv3-margin:40px;
+	--lv4-margin:80px;
+	--lv5-margin:160px;
+	--lv6-margin:350px;
+	--min-margin:var(--lv0-margin,5px);
+	--half-margin:var(--lv3-margin,40px);
+	--max-margin:var(--lv6-margin,350px);
+ 
+
+	 
+	--lv0-negative-margin:-5px;
+	--lv1-negative-margin:-10px;
+	--lv2-negative-margin:-20px;
+	--lv3-negative-margin:-40px;
+	--lv3-half-negative-margin:-60px;
+	--lv4-negative-margin:-80px;
+	--lv5-negative-margin:-160px;
+	--lv6-negative-margin:-350px;
+	--min-negative-margin:var(--lv0-negative-margin,-5px);
+	--half-negative-margin:var(--lv3-negative-margin,-40px);
+	--max-negative-margin:var(--lv6-negative-margin,-350px);
+
+
+	/*Z-index*/
+	--lv0-z-index:0;
+	--lv1-z-index:300000000;
+	--lv2-z-index:600000000;
+	--lv3-z-index:1000000000;
+	--lv4-z-index:1300000000;
+	--lv5-z-index:1700000000;
+	--lv6-z-index:2000000000;
+	--min-z-index:var(--lv0-z-index,0); 
+	--max-z-index:var(--lv6-z-index,2000000000);
+	
+	/*Fontes*/
+  
+	--lv0-font-size: 12px;
+	--lv0-half-font-size: 14px;
+	--lv1-font-size: 16px; 
+	--lv1-half-font-size: 18px;
+	--lv2-font-size: 19px;
+	--lv2-half-font-size: 20px; 
+	--lv3-font-size: 22px;
+	--lv3-half-font-size: 26px;
+	--lv4-font-size: 28px;
+	--lv4-half-font-size: 32px;
+	--lv5-font-size: 36px;
+	--lv5-half-font-size: 42px;
+	--lv6-font-size: 48px;
+	
+
+	--min-font-hidden-size: 8px;
+	--half-font-hidden-size: 10px;
+	--max-font-hidden-size: 12px;
+
+	--min-font-size: var(--lv0-font-size);
+	--half-font-size:var(--lv3-font-size);
+	--max-font-size: var(--lv6-font-size);
+ 
+	--lv0-mobile-font-size: 28px;
+	--lv0-half-mobile-font-size: 36px;
+	--lv1-mobile-font-size: 42px;
+	--lv1-half-mobile-font-size: 48px;
+	--lv2-mobile-font-size: 54px;
+	--lv2-half-mobile-font-size: 64px;
+	--lv3-mobile-font-size: 76px;
+	--lv3-half-mobile-font-size: 82px;
+	--lv4-mobile-font-size: 86px;
+	--lv4-half-mobile-font-size: 96px;
+	--lv5-mobile-font-size: 102px;
+	--lv5-half-mobile-font-size: 116px;
+	--lv6-mobile-font-size: 122px;
+
+	--min-mobile-font-hidden-size: 22px;
+	--half-mobile-font-hidden-size: 24x;
+	--max-mobile-font-hidden-size: 26px;
+	
+	--min-mobile-font-size: var(--lv0-mobile-font-size);
+	--half-mobile-font-size: var(--lv3-mobile-font-size);
+	--max-mobile-font-size: var(--lv6-mobile-font-size);
+ 
+}

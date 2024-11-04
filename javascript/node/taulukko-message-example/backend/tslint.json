@@ -1,0 +1,20 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "no-console": false,
+    "ignorado o orded import pois contém um bug": "",
+    "ordered-imports": false,
+    "ignorado o align pois contém um bug": "",
+    "align": false,
+    "desligado para agilizar desenvolvimento- poucos mapas, foi decidido que não vale a pena": "",
+    "object-literal-sort-keys": false,
+    "ignorado o no-shadowed-variable pois contém um bug": "",
+    "no-shadowed-variable": false,
+    "desligado para agilizar desenvolvimento, o default não é muito legível e não faz sentido forçar um não default": "",
+    "array-type" : false,
+    "desligado member-ordering pois impossibilita o uso no público de variaveis declaradas no privado":"",
+    "member-ordering":false,
+    "adjacent-overload-signatures": false,
+    "adjacent-overload-signatures desligado por bug , ver : ":"https://github.com/palantir/tslint/issues/1652"
+  }
+}

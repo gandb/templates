@@ -1,0 +1,67 @@
+/* https://sass-lang.com/*/
+
+@use "@/assets/css/variables";
+
+@mixin defaultHeader($size)
+{
+	margin-block-end: 0px;
+	margin-block-start: 0px;
+	margin-bottom: 0.4em;
+	margin-top: 0.4em;
+	font-size:$size; 
+}
+
+#outergame
+{
+	h1
+	{
+		@include defaultHeader(var( --lv5-font-size));
+		.sub
+		{
+			font-size: var( --lv4-font-size); 
+		}
+	}
+	h2
+	{
+		@include defaultHeader(var( --lv4-font-size));
+		.sub
+		{
+			font-size:var( --lv3-font-size); 
+		}
+	}
+	h3
+	{
+		@include defaultHeader(var( --lv3-half-font-size));
+		.sub
+		{
+			font-size: var( --lv3-font-size); 
+		}
+	}
+	h4
+	{
+		@include defaultHeader(var( --lv3-font-size));
+		.sub
+		{
+			font-size: var( --lv2-font-size); 
+		}
+	}
+	h5
+	{
+		@include defaultHeader(var( --lv2-font-size));
+		.sub
+		{
+			font-size: var( --lv1-half-font-size); 
+		}
+	}
+	h6
+	{
+		@include defaultHeader(var(--lv2-font-size));
+		.sub
+		{
+			font-size:var( --lv1-half-font-size); 
+		}
+	}
+}
+ 
+
+    
