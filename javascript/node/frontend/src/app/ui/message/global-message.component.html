@@ -1,0 +1,12 @@
+<div *ngIf="show" class="card message">
+  <div class="card-body">
+      <div class="message-list">
+        <button type="button" class="btn btn-light close"  (click)="onClose()" >Fechar Mensagens</button>
+        <div *ngFor="let message of messages" [class.alert-danger]="isMessageError(message)"
+        [class.alert-warning]="isMessageWarning(message)"
+        [class.alert-info]="isMessageInfo(message)"   class="message alert" role="alert" >
+          {{message.message}}
+        </div>
+    </div>
+  </div>
+</div>

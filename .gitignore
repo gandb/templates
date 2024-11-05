@@ -72,3 +72,4 @@ flutter/m4s2-main/
 node/winston/*-audit.json
 *.db
 *.db-journal
+*.browserslistrc

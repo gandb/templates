@@ -1,0 +1,47 @@
+{
+  "name": "contas",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "npm run build-prod && npm run start-prod",
+    "start-local": "ng serve",
+    "start-prod": "serve -s ./dist/contas/browser/",
+    "build-prod": "ng build --configuration=production",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "ng-install": "npm install -g @angular/cli"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/router": "^18.0.0",
+    "@types/axios": "^0.9.36",
+    "axios": "^1.7.5",
+    "bootstrap": "^5.3.3",
+    "express": "^4.19.2",
+    "jquery": "^3.7.1",
+    "popper.js": "^1.16.1",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.0.1",
+    "@angular/cli": "^18.0.1",
+    "@angular/compiler-cli": "^18.0.0",
+    "@types/events": "^3.0.3",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.4.2"
+  }
+}
