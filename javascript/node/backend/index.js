@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.all = void 0;
 const express = require("express");
 const pingpong_1 = require("./functions/api/pingpong");
 const bodyParser = require("body-parser");
@@ -8,7 +9,7 @@ const PORT = 80;
 const app = express();
 const API_VERSION = "v1";
 app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`);
+    console.log(`App listening on port xxx ${PORT}`);
 });
 app.use(corsConfig);
 bodyPartConfig();
@@ -27,4 +28,3 @@ function bodyPartConfig() {
 // ROUTES 
 app.use(`/${API_VERSION}/pingpong`, pingpong_1.pingpong);
 exports.all = app;
-//# sourceMappingURL=index.js.map

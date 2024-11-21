@@ -19,7 +19,7 @@ const app = express();
 const API_VERSION : string = "v1";
 
 app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`);
+    console.log(`App listening on port xxx ${PORT}`);
 });
 
 

@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.errorMessages = exports.errorCodes = exports.contextVarNames = exports.MiddlewareManager = void 0;
 const context_vars_1 = require("./functions/context-vars");
 const midlleware_1 = require("./functions/midlleware");
-exports.MiddlewareManager = midlleware_1.MiddlewareManager;
+Object.defineProperty(exports, "MiddlewareManager", { enumerable: true, get: function () { return midlleware_1.MiddlewareManager; } });
 const error_msgs_1 = require("./functions/error-msgs");
 const contextVarNames = {
     CONTEXT_CLIENT_ID: context_vars_1.CONTEXT_CLIENT_ID, CONTEXT_CLIENT_KEY: context_vars_1.CONTEXT_CLIENT_KEY, CONTEXT_TOKEN_USER: context_vars_1.CONTEXT_TOKEN_USER,
@@ -16,4 +17,3 @@ const errorCodes = {
 exports.errorCodes = errorCodes;
 const errorMessages = { ERR_UNKNOWN_MESSAGE: error_msgs_1.ERR_UNKNOWN_MESSAGE, ERR_APP_ID_NOT_FOUND: error_msgs_1.ERR_APP_ID_NOT_FOUND, ERR_SESSION_INVALID: error_msgs_1.ERR_SESSION_INVALID };
 exports.errorMessages = errorMessages;
-//# sourceMappingURL=index.js.map

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ObjectsUtil = void 0;
 class ObjectsUtil {
     shallowCopy(data) {
         return JSON.parse(JSON.stringify(data));
@@ -13,4 +14,3 @@ class ObjectsUtil {
     }
 }
 exports.ObjectsUtil = ObjectsUtil;
-//# sourceMappingURL=objects.js.map

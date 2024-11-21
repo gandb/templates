@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Process = void 0;
 // 53 caracteres  12 (by version , cluster and Thread) - 8 (by random) - 31 (by clock)
 class Process {
     build() {
@@ -16,4 +17,3 @@ class Process {
     }
 }
 exports.Process = Process;
-//# sourceMappingURL=process.js.map

@@ -8,20 +8,22 @@
   "engines": {
     "node": ">=8.0.0"
   },
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "rem": "Private Scripts",
     "prepare": "npm run build",
     "test": "jest --env node",
     "testDBTest": "tsc --sourceMap ; node ./functions/api/DBTest.js",
-    "compile": "tsc --sourceMap",
+    "compile": "tsc -p ./tsconfig.json",
     "posttest": "npm run lint",
     "lint": "tslint --exclude '**/*.temp.ts' --exclude '**/node_modules/**' -p . ",
     "start": "node -r source-map-support/register index.js",
     "start2": "nodemon -r source-map-support/register index.js",
-    "tsfm": "tsfmt -r --no-tslint", 
+    "tsfm": "tsfmt -r --no-tslint",
     "deploy": "echo \"DEPLOY não foi desenvolvido ainda, talvez você tentou dizer BUILD\"",
-    "log": "gcloud functions logs read",
-    "build":"npm run compile",
+    "build": "npm run compile>log-compile.txt | npm run start",
     "help": "echo 'Use os scripts: build, test, tsfm, lint, deploy '"
   },
   "dependencies": {
@@ -38,16 +40,17 @@
     "nodemailer": "^6.3.0",
     "nodemon": "^2.0.7",
     "source-map-support": "^0.5.16",
+    "taulukko-messages": "^0.0.41",
     "uuid": "^3.3.2"
   },
-  "devDependencies": { 
+  "devDependencies": {
     "@types/express": "^4.16.0",
     "@types/jest": "^24.0.15",
     "jest": "^24.9.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.11.0",
     "tslint-eslint-rules-recommended": "^1.2.2",
-    "typescript": "^3.0.1",
+    "typescript": "^5.6.3",
     "typescript-formatter": "^7.2.2"
   },
   "jest": {

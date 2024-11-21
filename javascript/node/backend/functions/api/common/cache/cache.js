@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Cache = void 0;
 const NodeCache = require("node-cache");
 class Cache {
     constructor(stdTTL, checkPeriod) {
@@ -28,4 +29,3 @@ class Cache {
     }
 }
 exports.Cache = Cache;
-//# sourceMappingURL=cache.js.map

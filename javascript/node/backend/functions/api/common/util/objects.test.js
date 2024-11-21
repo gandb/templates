@@ -91,4 +91,3 @@ test("partialCopy object, empty case ", () => {
         weight: 33,
     });
 });
-//# sourceMappingURL=objects.test.js.map

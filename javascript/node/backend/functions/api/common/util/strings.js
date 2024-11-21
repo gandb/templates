@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.StringsUtil = void 0;
 class StringsUtil {
     contains(str, value) {
         if (value.length > str.length) {
@@ -92,4 +93,3 @@ class StringsUtil {
     }
 }
 exports.StringsUtil = StringsUtil;
-//# sourceMappingURL=strings.js.map

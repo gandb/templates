@@ -96,4 +96,3 @@ describe("string util functions", () => {
         expect(StringsUtil.count("abc.def.ghi", ".")).toBe(2);
     });
 });
-//# sourceMappingURL=strings.test.js.map

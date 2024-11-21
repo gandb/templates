@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.KeyTool = void 0;
 const strings_1 = require("./strings");
 const uuidv4 = require("uuid/v4");
 const uuidv1 = require("uuid/v1");
@@ -31,4 +32,3 @@ class KeyTool {
     }
 }
 exports.KeyTool = KeyTool;
-//# sourceMappingURL=key-tool.js.map

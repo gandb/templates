@@ -40,7 +40,7 @@
     "nodemailer": "^6.3.0",
     "nodemon": "^2.0.7",
     "source-map-support": "^0.5.16",
-    "taulukko-messages": "^0.0.18",
+    "taulukko-messages": "^0.0.41",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

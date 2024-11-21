@@ -1,9 +1,10 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -17,7 +18,7 @@ const TAULUKKO_APP_TOKEN = "000001-1lUw3sStt_JelyzdwrgR20zOycQ5IjcwBFZqQXUWRI";
 const SERVICE_URL_ACCOUNT = `http://localhost:${PORT}/profile/`;
 const SERVICE_URL_LOGIN = `http://localhost:${PORT}/signin/internal-login`;
 const SERVICE_URL = `http://localhost:${PORT}/campaign`;
-const beforeAll = () => __awaiter(this, void 0, void 0, function* () {
+const beforeAll = () => __awaiter(void 0, void 0, void 0, function* () {
     for (let i = 0; i < 20; i++) {
         console.info("");
     }
@@ -48,7 +49,7 @@ const printStartTest = (name) => {
     console.info(`==================================================================`);
     console.info(`==================================================================`);
 };
-const testCampaignAdd = () => __awaiter(this, void 0, void 0, function* () {
+const testCampaignAdd = () => __awaiter(void 0, void 0, void 0, function* () {
     printStartTest(`testCampaignAdd em ${SERVICE_URL_ACCOUNT}`);
     const argsWrong = { name: "wrong", description: "wrong" };
     const argsBase = {
@@ -73,7 +74,7 @@ const testCampaignAdd = () => __awaiter(this, void 0, void 0, function* () {
         console.info("Success!!!=>", error.message);
     }
 });
-const testLoadCampaignByID = () => __awaiter(this, void 0, void 0, function* () {
+const testLoadCampaignByID = () => __awaiter(void 0, void 0, void 0, function* () {
     let callback = yield client.post(SERVICE_URL_ACCOUNT);
     const cmpLink = callback.data.allcampaigns.contents[0];
     console.info(`===Iniciando testes para :testLoadCampaignByID em ${cmpLink}===`);
@@ -94,10 +95,9 @@ const testLoadCampaignByID = () => __awaiter(this, void 0, void 0, function* () 
         console.info("Success!!!=>", error.message);
     }
 });
-const testAll = () => __awaiter(this, void 0, void 0, function* () {
+const testAll = () => __awaiter(void 0, void 0, void 0, function* () {
     yield beforeAll();
     yield testCampaignAdd();
     yield testLoadCampaignByID();
 });
 testAll();
-//# sourceMappingURL=index.integration-test.js.map

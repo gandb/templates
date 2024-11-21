@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { GlobalMessageComponent } from './ui/message/global-message.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet,GlobalMessageComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'contas';
+  title = 'teste';
+  minhaFuncao() {
+    console.log('Função chamada ao clicar na tag <a>!');
+    // Adicione a lógica desejada aqui
+  }
+
 }

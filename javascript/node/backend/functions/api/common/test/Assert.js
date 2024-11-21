@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Assert = void 0;
 class Assert {
     constructor() {
         this._result = null;
@@ -101,4 +102,3 @@ class Assert {
     }
 }
 exports.Assert = Assert;
-//# sourceMappingURL=Assert.js.map

@@ -108,4 +108,3 @@ test("Add hours ", () => {
     expect(DatesUtil.addHours(date, -1)).toEqual(expectedMinor);
     expect(DatesUtil.addHours(date, 24)).toEqual(expectedAnotherDay);
 });
-//# sourceMappingURL=dates.test.js.map

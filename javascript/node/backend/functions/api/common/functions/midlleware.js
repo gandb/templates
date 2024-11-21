@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MiddlewareManager = void 0;
 const http_server_1 = require("../http-server");
 const process_1 = require("../util/process");
 const contextVars = require("../functions/context-vars");
@@ -113,4 +114,3 @@ class MiddlewareManager {
     }
 }
 exports.MiddlewareManager = MiddlewareManager;
-//# sourceMappingURL=midlleware.js.map

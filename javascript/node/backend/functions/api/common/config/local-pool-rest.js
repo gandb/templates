@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.LocalPool = void 0;
 class LocalPool {
     constructor() {
         this.BASE = "http://localhost";
@@ -15,4 +16,3 @@ class LocalPool {
     }
 }
 exports.LocalPool = LocalPool;
-//# sourceMappingURL=local-pool-rest.js.map

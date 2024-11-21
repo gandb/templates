@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Test = void 0;
 class Test {
     constructor(case1, name) {
         this._name = name;
@@ -17,4 +18,3 @@ class Test {
     }
 }
 exports.Test = Test;
-//# sourceMappingURL=Test.js.map

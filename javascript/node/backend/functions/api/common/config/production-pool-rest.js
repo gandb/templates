@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ProductionPool = void 0;
 class ProductionPool {
     constructor() {
         this.BASE = "https://southamerica-east1-v-alert.cloudfunctions.net/all";
@@ -15,4 +16,3 @@ class ProductionPool {
     }
 }
 exports.ProductionPool = ProductionPool;
-//# sourceMappingURL=production-pool-rest.js.map
