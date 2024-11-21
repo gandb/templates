@@ -3,5 +3,6 @@
   "dest": "../../dist/my-lib",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  } ,
+  "allowedNonPeerDependencies": [ "socket.io-client"]
 }

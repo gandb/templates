@@ -1,19 +1,20 @@
 {
-  "name": "mylib",
-  "version": "0.0.3",
-  "author": "Edson Vicente Carli Junior",  
-  "license": "MIT",  
-  "main": "esm2022/taulukko-test-myliba.js",  
-  "module": "fesm2022/taulukko-test-myliba.js",  
-  "esm2022": "esm2022/taulukko-test-myliba.js",   
-  "fesm2022": "fesm2022/taulukko-test-myliba.js", 
-  "typings": "index.d.ts", 
+  "name": "taulukko-angular-socketio-test",
+  "version": "0.0.6",
+  "author": "Edson Vicente Carli Junior",
+  "license": "MIT",
+  "main": "esm2022/taulukko-test-myliba.js",
+  "module": "fesm2022/taulukko-test-myliba.js",
+  "esm2022": "esm2022/taulukko-test-myliba.js",
+  "fesm2022": "fesm2022/taulukko-test-myliba.js",
+  "typings": "index.d.ts",
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
-  },
+    "tslib": "^2.3.0",
+    "socket.io-client": "^4.8.1"
+  }, 
   "sideEffects": false
 }
