@@ -8,6 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "browser": {
+    "https": "./src/mocks/https.js",
+    "winston": "./src/mocks/https.js"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.2.0",
@@ -18,7 +22,8 @@
     "@angular/platform-browser": "^18.2.0",
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
-    "rxjs": "~7.8.0", 
+    "rxjs": "~7.8.0",
+    "taulukko-angular-messages-test": "^0.0.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
   },

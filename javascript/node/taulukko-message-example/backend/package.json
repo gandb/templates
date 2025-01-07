@@ -13,6 +13,6 @@
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "socket.io": "^4.8.1",
-    "taulukko-messages": "^0.0.65"
+    "taulukko-messages": "^0.1.34"
   }
 }

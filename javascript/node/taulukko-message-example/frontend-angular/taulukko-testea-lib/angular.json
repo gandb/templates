@@ -107,7 +107,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/my-lib/ng-package.json"
+            "project": "projects/my-lib/ng-package.json" 
           },
           "configurations": {
             "production": {

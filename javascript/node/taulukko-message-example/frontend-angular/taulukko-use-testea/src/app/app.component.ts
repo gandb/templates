@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import  {MyLibComponent,MyLibService} from "taulukko-angular-socketio-test";
+import  {MyLibComponent,MyLibService} from "taulukko-angular-messages-test";
  
 @Component({
   selector: 'app-root',
@@ -16,15 +16,12 @@ export class AppComponent  implements OnDestroy, OnInit{
  
   constructor(private service: MyLibService){
 
-    const firstTest:String = service.echo("firstTest");
   
 
   }
 
   triggerServiceAction() {
-    const echo:String = this.service.echo("xisto");
-    console.log(this.echo);
-    this.echo = echo;
+      this.service.publish("[publicando texto teste]"); 
   }
 
   ngOnInit(): void {

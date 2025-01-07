@@ -4,5 +4,5 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   } ,
-  "allowedNonPeerDependencies": [ "socket.io-client"]
+  "allowedNonPeerDependencies": [ "socket.io-client","taulukko-messages"]
 }

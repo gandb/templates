@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
-import {io, Socket}  from  "socket.io-client";
-
+import { Injectable } from '@angular/core'; 
+import {Publisher,Subscriber} from "taulukko-messages-client";
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +7,38 @@ import {io, Socket}  from  "socket.io-client";
 export class MyLibService {
   
   active:boolean = false;
-  socket:Socket;
+  publisher:Publisher;
+  subscriber:Subscriber;
   count:number=1;
   constructor() { 
-    this.socket = io("http://localhost:3000");
-
-    this.socket.on("echo", (s) => {
-      console.log("Vindo do servidor: ", s);
+    this.publisher = Publisher.create({
+      topics: ["topic.simpleMessage"] // Only specify the topic
+    });
+    this.subscriber = Subscriber.create({
+      topics: ["topic.simpleMessage"] // Only specify the topic
     });
 
+    this.publisher.open().then(()=>{
+      console.log("Publisher aberto");
+    });
+
+    
+    this.subscriber.open().then(()=>{
+      console.log("Subscriber aberto");
+
+      this.subscriber.on(async (message)=>{
+          console.log("Subscriber recebeu isto:",message);
+      });
+    });
+
+
+ 
     console.log('constructor: MyLibService ...'); 
   }
 
-  echo(s:String):String{
-    this.socket.emit("echo",s);
-    return "echo: " + s;
+  publish(s:String)
+  {
+    this.publisher.send("Isto é uma mensagem enviada pelo publisher");
   }
+ 
 }

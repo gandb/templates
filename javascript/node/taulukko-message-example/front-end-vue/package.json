@@ -1,19 +1,31 @@
 {
-  "name": "helloworld",
-  "description": "Simple hello world sample in Node",
-  "version": "1.0.0",
+  "name": "front-end-vue",
+  "version": "0.0.0",
   "private": true,
-  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "compile": "rimraf ./dist && tsc --sourceMap",
+    "type-check": "vue-tsc --build --force"
   },
-  "engines": {
-    "node": ">=16.0.0"
-  },
-  "author": "Google LLC",
-  "license": "Apache-2.0",
   "dependencies": {
-    "express": "^4.17.1"
+    "rimraf": "^6.0.1",
+    "socket.io-client": "^4.8.1",
+    "taulukko-messages-client": "^0.1.39",
+    "vue": "^3.5.12"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.9.0",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vue/tsconfig": "^0.5.1",
+    "npm-run-all2": "^7.0.1",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.10",
+    "vite-plugin-vue-devtools": "^7.5.4",
+    "vue-tsc": "^2.1.10"
   }
 }

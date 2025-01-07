@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+  
+    "skipLibCheck": true,
+    "declaration": true,         // Gera arquivos .d.ts para cada arquivo .ts ,
+    
+    "outDir": "./dist",
+    "sourceMap": true
+    
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
+}
