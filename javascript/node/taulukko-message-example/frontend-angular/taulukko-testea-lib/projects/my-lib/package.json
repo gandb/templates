@@ -13,8 +13,7 @@
     "@angular/core": "^18.2.0"
   },
   "dependencies": {
-    "socket.io-client": "^4.8.1",
-    "taulukko-messages-client": "^0.1.11",
+    "taulukko-messages-client": "^0.1.39",
     "tslib": "^2.3.0"
   },
   "sideEffects": false
