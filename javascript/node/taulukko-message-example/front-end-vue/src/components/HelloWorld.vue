@@ -1,6 +1,17 @@
 <script setup lang="ts">
-  import * as echo  from "../assets/libs/echo.js";
+  import type { Listener, Message } from "taulukko-messages-client";
+import * as echo  from "../assets/libs/echo.js";
 
+  let output:string="";
+
+  echo.listener((msg: Message):any => {
+    output = msg.data;
+  });
+ 
+  echo.simpleListener((msg: string):any => {
+    output = msg;
+  });
+ 
   const props = defineProps<{
     msg: string
   }>()
@@ -18,8 +29,8 @@
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
- 
+      <p>You’ve successfully created a project with</p>
+      <textarea>{{output}}</textarea>
       <button @click="echoByLib"> Echo by lib</button>
       <button @click="echoBySocketIO"> Echo by SocketIO</button>
     </h3>
@@ -48,5 +59,11 @@ h3 {
   .greetings h3 {
     text-align: left;
   }
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  margin: 10px 0;
 }
 </style>
