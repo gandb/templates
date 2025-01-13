@@ -81,3 +81,4 @@ javascript/node/backend/log/
 *.iml
 java/caderno-felicidade/.idea/
 java/caderno-felicidade/target/
+javascript/node/taulukko-message-example/front-end-vue/.vite/
