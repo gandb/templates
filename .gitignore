@@ -73,3 +73,11 @@ node/winston/*-audit.json
 *.db
 *.db-journal
 *.browserslistrc
+javascript/node/taulukko-message-example/backend/log/
+javascript/node/backend/log/taulukko-messages-202411090804.log.gz
+javascript/node/backend/log/taulukko-messages-202411081803.log.gz
+*.lst
+javascript/node/backend/log/
+*.iml
+java/caderno-felicidade/.idea/
+java/caderno-felicidade/target/
