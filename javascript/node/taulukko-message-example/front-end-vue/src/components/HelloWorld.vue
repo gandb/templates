@@ -1,26 +1,37 @@
 <script setup lang="ts">
   import type { Listener, Message } from "taulukko-messages-client";
 import * as echo  from "../assets/libs/echo.js";
+ 
 
-  let output:string="";
-
+function out(msg: string){
+    const txtOutput:Element|null = 
+    document.querySelector("#txtOutput");
+    if(txtOutput)
+    {
+      txtOutput.innerHTML = msg;
+    }
+  }
+ 
   echo.listener((msg: Message):any => {
-    output = msg.data;
+    console.log("echo.listene");
+    out("Vindo do servidor:" + msg.data);
   });
- 
+
   echo.simpleListener((msg: string):any => {
-    output = msg;
+    out(msg);
   });
  
+  
   const props = defineProps<{
     msg: string
-  }>()
+  }>();
+
   function echoByLib(){
     echo.byLib("Hello World! 1");
   }
 
-  function echoBySocketIO(){
-    echo.bySocketIO("Hello World! 2");
+  function echoByTaulukko(){
+    echo.byTaulukko("Hello World! 2");
   }
 
 </script>
@@ -30,9 +41,9 @@ import * as echo  from "../assets/libs/echo.js";
     <h1 class="green">{{ msg }}</h1>
     <h3>
       <p>You’ve successfully created a project with</p>
-      <textarea>{{output}}</textarea>
+      <textarea id="txtOutput"> </textarea>
       <button @click="echoByLib"> Echo by lib</button>
-      <button @click="echoBySocketIO"> Echo by SocketIO</button>
+      <button @click="echoByTaulukko"> Echo by Taulukko Messages</button>
     </h3>
   </div>
 </template>
