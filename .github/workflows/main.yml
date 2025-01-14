@@ -23,10 +23,10 @@ jobs:
           download: https://github.com/${{github.repository}}/releases/download/${{github.event.release.tag_name}}/module.zip
 
       # Create a zip file with all files required by each  module to add to the release
-      - run: zip -r ./backend.zip backend/
-      - run: zip -r ./front-end-angular.zip front-end-angular/
-      - run: zip -r ./front-end-vanilla.zip front-end-vanilla/
-      - run: zip -r ./front-end-vue.zip front-end-vue/
+      - run: zip -r ./backend.zip javascript/node/taulukko-message-example/backend/
+      - run: zip -r ./front-end-angular.zip javascript/node/taulukko-message-example/front-end-angular/
+      - run: zip -r ./front-end-vanilla.zip javascript/node/taulukko-message-example/front-end-vanilla/
+      - run: zip -r ./front-end-vue.zip javascript/node/taulukko-message-example/front-end-vue/
       
 
       # Create a release for this specific version
