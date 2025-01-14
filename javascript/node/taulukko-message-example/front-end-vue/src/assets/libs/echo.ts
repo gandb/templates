@@ -41,7 +41,7 @@ export function byLib(value:string){
     }
 }   
 
-export async function bySocketIO(value:string){ 
+export async function byTaulukko(value:string){ 
      publisher.send(value );
     
 }
