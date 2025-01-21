@@ -1,2 +1,22 @@
+const grpc = require('@grpc/grpc-js');
 
-// ver C:\Users\Public\workspace\sotao\grpc-node 
+const protoLoader = require('@grpc/proto-loader'); 
+
+const PROTO_PATH = __dirname + '/src/protos/greet.proto';
+
+const packageDefinition = protoLoader.loadSync(
+    PROTO_PATH,
+    {keepCase: true,
+     longs: String,
+     enums: String,
+     defaults: true,
+     oneofs: true
+    });
+
+const Greeter = grpc.loadPackageDefinition(packageDefinition).Greeter;
+
+const greeter = new Greeter('localhost:7741', grpc.credentials.createInsecure());
+
+greeter.SayHello({ name: 'world' }, (err, response) => {
+  console.log('Greeting:', response); 
+});
