@@ -31,6 +31,12 @@ server.addService(greet_proto.service, {
 
 console.log('Iniciando servidor em http://localhost:'+PORT);
 
+
+
+
+setInterval(() => {console.log("server alive");},60000);
+
+
 const bindResult = server.bindAsync('localhost:'+PORT, grpc.ServerCredentials.createInsecure(),(error,port)=>{
   if(error)
   {
@@ -40,5 +46,3 @@ const bindResult = server.bindAsync('localhost:'+PORT, grpc.ServerCredentials.cr
   console.log('Server running at http://localhost:' + port);
 });
  
-
-setInterval(() => {console.log("server alive");},60000);

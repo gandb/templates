@@ -18,5 +18,11 @@ const Greeter = grpc.loadPackageDefinition(packageDefinition).Greeter;
 const greeter = new Greeter('localhost:7741', grpc.credentials.createInsecure());
 
 greeter.SayHello({ name: 'world' }, (err, response) => {
-  console.log('Greeting:', response); 
+    if(err)
+    {
+        console.error("Error on service1:",err);
+        return
+    }
+    console.log('Greeting:', response); 
 });
+ 
