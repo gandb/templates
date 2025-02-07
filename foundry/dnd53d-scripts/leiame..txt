@@ -1,0 +1,10 @@
+Adicionar no word.json
+
+(…)
+  "version": "1.0.0",
+  "esmodules": [
+    "scripts/HideUnidentify3.js",
+    "scripts/RegionUtils.js"
+  ],
+  "packs": [  
+(…)
