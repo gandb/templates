@@ -84,3 +84,4 @@ java/caderno-felicidade/target/
 javascript/node/backend-express/log/
 javascript/node/taulukko-message-example/front-end-vue/.vite/
 java/grpc/.idea/
+java/grpc/hello-world/generated-sources/
