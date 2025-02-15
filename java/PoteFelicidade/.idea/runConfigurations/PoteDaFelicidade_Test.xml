@@ -2,7 +2,7 @@
   <configuration default="false" name="PoteDaFelicidade Test" type="Application" factoryName="Application" editBeforeRun="true">
     <option name="MAIN_CLASS_NAME" value="com.taulukko.PoteDaFelicidade" />
     <module name="PoteFelicidade" />
-    <option name="PROGRAM_PARAMETERS" value="1000 NATURAL" />
+    <option name="PROGRAM_PARAMETERS" value="1000" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.taulukko.*" />
