@@ -85,3 +85,5 @@ javascript/node/backend-express/log/
 javascript/node/taulukko-message-example/front-end-vue/.vite/
 java/grpc/.idea/
 java/grpc/hello-world/generated-sources/
+.net/c#/OcrWinRT/bin/
+.net/c#/OcrWinRT/obj/
