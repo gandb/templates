@@ -87,3 +87,5 @@ java/grpc/.idea/
 java/grpc/hello-world/generated-sources/
 .net/c#/OcrWinRT/bin/
 .net/c#/OcrWinRT/obj/
+javascript/node/import-images-from-url-typescript/dist/node_modules_/
+javascript/node/import-images-from-url-typescript/dist/
