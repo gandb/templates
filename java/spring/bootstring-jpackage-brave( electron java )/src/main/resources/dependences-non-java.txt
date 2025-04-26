@@ -1,0 +1,9 @@
+#browser required for open the application
+-https://portapps.io/app/brave-portable/
+
+#WiX 3.0 or later is required for jpackage
+https://wixtoolset.org/releases/
+
+#jpackage
+-https://docs.oracle.com/en/java/javase/17/jpackage/packaging-overview.html
+
