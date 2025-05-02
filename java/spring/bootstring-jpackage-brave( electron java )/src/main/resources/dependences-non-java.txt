@@ -1,4 +1,6 @@
 #browser required for open the application
+#dropbox/aplicativos
+#google drive/Projetos Clientes/Atuais/Pyramid
 -https://portapps.io/app/brave-portable/
 
 #WiX 3.0 or later is required for jpackage
