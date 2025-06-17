@@ -1,0 +1,19 @@
+{
+	"name": "my-typescript-node-project",
+	"version": "1.0.0", 
+	  "module": "ESNext",                
+    "target": "ES2022",  
+	"type": "module",
+	"strict": true, 
+	"declaration": true,  
+	"scripts": {
+		"build": "tsc",
+		"start": "npm run build && node start.mjs" 
+	},
+	"devDependencies": {
+		"@types/node": "^20.14.5",
+		"ts-node": "^10.9.2",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "^5.4.5"
+	} 
+}

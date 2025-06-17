@@ -1,0 +1,12 @@
+20250524164107-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [modules/ravenloft-adventures/imagens/assets/porta-destru%C3%ADda.png] do ator -  Porta Quebrada  não existe mesmo.
+image-fix.js:1009 20250524164108-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [images/ravenloft/npcs/Shambling%20Mound.jpg] do ator -  Shambling Mound  não existe mesmo.
+image-fix.js:1009 20250524164108-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [tokens/png-clipart-rpg-map-elements-55-bonfire-3d-illustration.png] do ator -  fogueira  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [maps/ravenloft/A%20Passagem.jpg] do cena -  A Passagem  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [maps/Acampamento%20do%20Lago%20Tser.jpg] do cena -  Acampamento  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [maps/ravenloft/barovia.jpg] do cena -  Baróvia World GM  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [maps/forgotten-realms/Esmerald%20Village.jpg] do cena -  Esmerald Vilage  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [maps/ravenloft/abandonned%20farm.jpg] do cena -  Fazenda Abandonada  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [images/MainTemeBaldursGate.jpg] do cena -  Main Screen  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [images/MainTemeRavenloft.jpg] do cena -  Main Screen Ravenloft  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [maps/Sword%20Cost.png] do cena -  Sword of Coast  não existe mesmo.
+image-fix.js:1009 20250524164111-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [maps/Toca%20Dos%20Homens%20Sapos.jpg] do cena -  Área 5  não existe mesmo.

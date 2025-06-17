@@ -1,0 +1,1 @@
+{"version":3,"file":"csv-manager.js","sourceRoot":"","sources":["../src/csv-manager.ts"],"names":[],"mappings":"AACA,MAAM,UAAU;IAEZ,KAAK,CAAC,QAAQ,CAAM,OAAc,EAAE,SAA6B;QAC7D,IAAI,CAAC,GAAK,SAAS,CAAC,OAAO,CAAC,CAAC;QAC7B,OAAO,CAAC,CAAC;IACb,CAAC;CACJ;AAGD,MAAM,CAAC,IAAI,UAAU,GAAG,IAAI,UAAU,EAAE,CAAC"}

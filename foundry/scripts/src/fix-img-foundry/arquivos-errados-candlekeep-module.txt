@@ -1,0 +1,3 @@
+20250524164724-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [icons/magic/nature/vines-throned-entwined-glow-green.webp] do item e efeito -  Transport via Plants  não existe mesmo.
+image-fix.js:1009 20250524164727-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [modules/candlekeep-5ed/images/maps/baldurs-gate-region-gm-02.webp] do cena -  Baldurs Gate Mapa 2  não existe mesmo.
+image-fix.js:1009 20250524164727-IMAGE-FIX- IMPORTANTE!!!! A imagem srcMain [modules/candlekeep-5ed/images/covers/cover_01.jpg] do cena -  Main  não existe mesmo.

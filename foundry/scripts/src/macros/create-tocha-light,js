@@ -1,0 +1,14 @@
+// 1. Obtém o token e o ator
+const token = canvas.tokens.controlled[0];
+if (!token) return ui.notifications.warn("Selecione um token.");
+ 
+ 
+await token.document.update({
+  light: {
+    bright: 5,
+    dim: 30,
+    color: "#FF6A00",
+    animation: { type: "torch", speed: 4, intensity: 5 }
+  }});
+
+ui.notifications.info("Efeito de luz de tocha aplicado ao token.");
