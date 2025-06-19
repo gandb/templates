@@ -6,15 +6,11 @@
 	"type": "module",
 	"strict": true, 
 	"declaration": true,  
-	"scripts": {
-		"build": "tsc",
-		"start": "pnpm run build && node start.mjs"
+	"main": "start.mjs",
+	"scripts": { 
+		"start": "node start.mjs"
 	},
-	"devDependencies": {
-		"@types/node": "24.0.3",
-		"ts-node": "^10.9.2",
-		"tsconfig-paths": "^4.2.0",
-		"typescript": "^5.4.5"
+	"devDependencies": { 
 		
 	} ,   
   "keywords": [],

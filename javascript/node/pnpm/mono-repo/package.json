@@ -1,5 +1,5 @@
 {
-  "name": "mono-repo-project-01",
+  "name": "mono-repo-project",
 	"version": "1.0.0", 
 	  "module": "ESNext",                
     "target": "ES2022",  
@@ -7,17 +7,9 @@
 	"strict": true, 
 	"declaration": true,  
 	"scripts": {
-		"build": "tsc",
-		"start": "pnpm run build && node start.mjs"
-	},
-	"dependencies": {
-		  "mono-repo-project-01": "workspace:*"
+		"start": "pnpm --filter main run start"
 	},
 	"devDependencies": {
-		"@types/node": "24.0.3",
-		"ts-node": "^10.9.2",
-		"tsconfig-paths": "^4.2.0",
-		"typescript": "^5.4.5"
 	} ,   
   "keywords": [],
   "author": "",

@@ -7,16 +7,13 @@
 	"strict": true, 
 	"declaration": true,  
 	"scripts": {
-		"build": "tsc",
-		"start": "pnpm run build && node start.mjs"
+		"start": "node start.mjs"
 	},
 	"dependencies": { 
+		"mono-repo-project-01": "workspace:*",
+		"mono-repo-project-02": "workspace:*"
 	},
-	"devDependencies": {
-		"@types/node": "24.0.3",
-		"ts-node": "^10.9.2",
-		"tsconfig-paths": "^4.2.0",
-		"typescript": "^5.4.5"
+	"devDependencies": { 
 	} ,   
   "keywords": [],
   "author": "",
