@@ -1,0 +1,28 @@
+{
+  "name": "my-typescript-node-project",
+	"version": "1.0.0", 
+	  "module": "ESNext",                
+    "target": "ES2022",  
+	"type": "module",
+	"strict": true, 
+	"declaration": true,  
+	 "main": "packages/main/index.mjs",
+	"scripts": { 
+		"build": "tsc",
+		"start": "pnpm run build && node ./index.mjs"
+	},
+	"engines": {
+		"node": ">=20.18.1",
+		"pnpm": ">=10.12.1"
+	},
+	"devDependencies": {
+		"@types/node": "24.0.3",
+		"ts-node": "^10.9.2",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "^5.4.5"
+	} ,   
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1"
+}
