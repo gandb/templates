@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://*/**
 // @grant       none
-// @version     1.5
+// @version     1.6
 // @author      -
 // @description 07/05/2025, 15:29:43
 // ==/UserScript==
@@ -33,7 +33,7 @@ function criarLembrete(){
       <div style="
         position: fixed;
         top: 10px;
-        right: 10px;
+        left: 10px;
         background: linear-gradient(135deg, #4e54c8, #8f94fb);
         color: white;
         padding: 16px 24px;
@@ -63,7 +63,11 @@ function criarLembrete(){
 
         let iUserCode = document.getElementById('inptCode');
 
-        
+      if(!iUserCode)
+        {
+          iUserCode = document.getElementById('TextBoxLogin_txField');
+
+        }
 
         // Verificar se o campo existe e está visível
         if (iUserCode && iUserCode.offsetParent !== null) {
