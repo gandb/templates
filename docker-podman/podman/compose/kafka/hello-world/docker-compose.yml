@@ -1,0 +1,5 @@
+version: '3.8'
+services:
+  hello-world:
+    image: alpine  # Imagem leve do Linux
+    command: echo "Hello World from Docker Compose! 🌍"

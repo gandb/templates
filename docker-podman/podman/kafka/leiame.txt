@@ -1,0 +1,1 @@
+Usando podman compose, procure em templates/docker-podman/podman/compose
