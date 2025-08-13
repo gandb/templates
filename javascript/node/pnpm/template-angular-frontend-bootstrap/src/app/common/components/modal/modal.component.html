@@ -1,0 +1,8 @@
+<ng-container *ngIf="status">
+  
+  <div class="modal-component-content"   > 
+    <ng-content ></ng-content>
+  </div>
+  <div (click)="toggle()"class="overlay">
+  </div>
+</ng-container>

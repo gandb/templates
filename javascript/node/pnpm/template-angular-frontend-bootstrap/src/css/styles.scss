@@ -1,0 +1,52 @@
+ 
+
+  main {
+    flex-grow: 1!important; /* Garante que o main ocupe o espaço restante */ 
+    width: 100vw; /* Ocupa a altura da tela */
+    margin:0px;
+  } 
+  
+  html {
+    height: 100%;
+    margin: 0px;
+    body {
+      display: flex;
+      flex-direction: column; 
+      margin: 0px;  
+      &.personal-page-original{
+        background-color: #669999 !important; 
+        color: #000000;
+        app-root{
+          .main { 
+            header{
+              display:none ;
+            }
+            footer{
+              display:none ;
+            }
+          }
+        }
+      }
+      &.default-page{
+        overflow-y: hidden;
+        background: radial-gradient(circle, #CFBDAE 20%, rgba(222, 212, 186, 1) 50%) !important ;
+        app-root{ 
+          .main { 
+            .main-default{
+              height: 100vh;
+              main{
+                height: 75vh;
+              }
+              footer{
+                height: 30vh;
+               }
+            }
+       
+          }
+        }
+      }
+    }
+      
+  }
+  
+  

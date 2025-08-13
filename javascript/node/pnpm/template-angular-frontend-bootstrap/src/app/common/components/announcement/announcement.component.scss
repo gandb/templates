@@ -1,0 +1,49 @@
+ :host   {
+   DIV.announcement{
+            position: fixed;
+            top: 10px;
+            right: 10px; 
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-family: sans-serif;
+            font-size: 16px;
+            z-index: 10000; 
+        }
+    DIV.warning {
+        background: linear-gradient(135deg, hsl(36, 100%, 78%), rgb(255, 213, 88));
+        color: #333333;
+    }
+
+    DIV.error { 
+        background: linear-gradient(135deg, #f44336, rgb(238, 5, 5));
+        color: white;
+    }
+
+    DIV.success { 
+        background: linear-gradient(135deg, #4caf50, rgb(3, 104, 8));
+        color: white;
+    }
+
+    DIV.info { 
+        background: linear-gradient(135deg, #7094c9, rgb(6, 124, 235));
+        color: white;
+        
+    }
+
+    DIV.show{
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    DIV.hide{
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+    
+  
+}
+
+      
