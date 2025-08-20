@@ -1,0 +1,13 @@
+<div class="g-message-board">
+  <div class="top-messages">
+    <div class="top-messages-containner">
+    @for ( data of messages.entries();track data[0]) {
+      <div class="top-message" >
+            {{data[1].text}}
+        <button (click)='closeMessage(data[0])' aria-label="Fechar">&times;</button>
+      </div> 
+    }
+    </div>
+  </div> 
+  <app-announcement></app-announcement>
+</div>

@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "incremental": false,                      // Habilita compilação incremental para acelerar o processo   
+      "declaration": true,                      // Gera arquivos de declaração (.d.ts)   
+    //  "allowJs": true,                          // Permite a compilação de arquivos JavaScript   
+      
+      "noImplicitThis": true,                   // Gera erro se 'this' for usado de forma implícita
+      "alwaysStrict": true,                     // Garante que o código seja sempre tratado como estrito
+      "resolveJsonModule": true,                // Permite importar arquivos JSON como módulos
+      "strictNullChecks": true,                 // Habilita verificações estritas para valores nulos e indefinidos  
+
+      /* Experimental Options */
+      "experimentalDecorators": true,           // Habilita o uso de decoradores experimentais 
+
+      "target": "ESNext",                      // Use a versão mais recente do ECMAScript
+      "module": "ESNext",                      // Use o sistema de módulos ESNext
+      "moduleResolution": "node",              // Resolve módulos à maneira do Node.js
+//    "outDir": "./dist",                      // Diretório de saída para os arquivos compilados
+//    "rootDir": "./src",                      // Diretório raiz dos arquivos fonte
+      "esModuleInterop": true,                 // Habilita interoperabilidade com módulos CommonJS
+      "skipLibCheck": true,                    // Pula verificação de bibliotecas para acelerar a compilação
+      "forceConsistentCasingInFileNames": true // Garante a consistência de nomes de arquivos
+    },
+   // "include": ["src"],                        // Inclui todos os arquivos TypeScript no diretório src
+    "exclude": ["node_modules"]                 // Exclui o diretório node_modules
+}

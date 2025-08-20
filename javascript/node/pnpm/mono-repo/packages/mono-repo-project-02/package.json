@@ -1,0 +1,20 @@
+{
+  "name": "mono-repo-project-02",
+	"version": "1.0.0", 
+	  "module": "ESNext",                
+    "target": "ES2022",  
+	"type": "module",
+	"strict": true, 
+	"declaration": true,  
+	"main": "start.mjs",
+	"scripts": { 
+		"start": "node start.mjs"
+	},
+	"devDependencies": { 
+		
+	} ,   
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1"
+}

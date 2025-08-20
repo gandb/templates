@@ -1,0 +1,26 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .: {}
+
+  packages/main:
+    dependencies:
+      mono-repo-project-01:
+        specifier: workspace:*
+        version: link:../mono-repo-project-01
+      mono-repo-project-02:
+        specifier: workspace:*
+        version: link:../mono-repo-project-02
+
+  packages/mono-repo-project-01:
+    dependencies:
+      mono-repo-project-02:
+        specifier: workspace:*
+        version: link:../mono-repo-project-02
+
+  packages/mono-repo-project-02: {}

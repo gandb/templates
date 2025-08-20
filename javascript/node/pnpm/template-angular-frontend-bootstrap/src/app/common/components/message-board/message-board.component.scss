@@ -1,0 +1,48 @@
+ .g-message-board {
+    position: relative;
+    margin: 0px;
+
+   .top-messages {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      z-index: 9999;
+      .top-messages-containner {
+         position: block;
+         .top-message {
+            position: block;
+            transform: translateX(-50%);
+            background-color: #f9f9f9;
+            /* fundo claro */
+            color: #222;
+            /* texto escuro */
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+            font-size: 16px;
+            max-width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            min-width: 240px;
+            margin-bottom: 1vh;
+
+            button {
+               all: unset;
+               cursor: pointer;
+               font-weight: bold;
+               color: #888;
+               margin-left: 16px;
+               font-size: 18px;
+               line-height: 1;
+            }
+
+            button:hover {
+               color: #333;
+            }
+         }
+      }
+
+   }
+}

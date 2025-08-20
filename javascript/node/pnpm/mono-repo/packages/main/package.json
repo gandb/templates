@@ -1,0 +1,22 @@
+{
+  "name": "main",
+	"version": "1.0.0", 
+	  "module": "ESNext",                
+    "target": "ES2022",  
+	"type": "module",
+	"strict": true, 
+	"declaration": true,  
+	"scripts": {
+		"start": "node start.mjs"
+	},
+	"dependencies": { 
+		"mono-repo-project-01": "workspace:*",
+		"mono-repo-project-02": "workspace:*"
+	},
+	"devDependencies": { 
+	} ,   
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1"
+}
