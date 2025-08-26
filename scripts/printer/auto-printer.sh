@@ -7,7 +7,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 
-FOLDER="/media/gandb/workspace/scripts/printer" 
+FOLDER="/home/print" 
 
 apt update
 apt-get install inoticoming
@@ -25,12 +25,19 @@ if [ ! -d "${FOLDER}/error" ]; then
     mkdir "${FOLDER}/error" 
 fi
 
+#lpstat -p lista as impressoras
 
-#while true; do
-    if [ ! -d "${FOLDER}" ]; then
+PRINTER="HP_LaserJet_M109-M112"
+
+#define a impressora padrão
+lpoptions -d "$PRINTER"
+
+while true; do
+    echo "Aguardando...."
+    sleep 5  # pausa de 5 segundos
+    if [ ! -d "${FOLDER}" ]; then 
         echo "A pasta não existe. Aguardando...." >> $FOLDER/error/output.log
-        sleep 5  # pausa de 5 segundos
-        exit 0 #continue
+        continue
     fi
 
  
@@ -50,7 +57,7 @@ fi
         if [[ "$extension_lower" == "pdf" || "$extension_lower" == "docx" || "$extension_lower" == "txt" || \
             "$extension_lower" == "jpg" || "$extension_lower" == "jpeg" || "$extension_lower" == "png" || \
             "$extension_lower" == "webp" || "$extension_lower" == "gif" ]]; then
-            #lpr "$FOLDER"/"$file" &&
+            lpr "$file" &&
             mv "$file" "$FOLDER"/printed
         elif [[ "$extension" != "sh" ]]; then
             #impede de copiar o proprio script sh
@@ -58,4 +65,4 @@ fi
         fi
     done
    
-#done
+done
