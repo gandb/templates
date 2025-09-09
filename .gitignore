@@ -1,5 +1,7 @@
 ###################===JS===#########################
 **/node_modules/**
+###################===JAVA===#########################
+**/.idea/**
 ###################===PYTHON===#########################
 **/__pycache__/**
 ###################===3D Unit===#########################
@@ -90,3 +92,4 @@ java/grpc/hello-world/generated-sources/
 javascript/node/import-images-from-url-typescript/dist/node_modules_/
 javascript/node/import-images-from-url-typescript/dist/
 java/spring/bootstring-jpackage-brave( electron java )/src/main/resources/brave-portable.zip
+java/graphql/hello-world/.idea/.gitignore
