@@ -1,1 +1,0 @@
-Alguns projetos em /javascript e /javascript/node tem exemplos com angular tambem
