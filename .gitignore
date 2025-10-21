@@ -7,6 +7,13 @@
 **/**/.classpath/**
 **/**/.project/**
 **/**/.idea
+java/**/ */.idea/**
+java/**/target/**
+java/**/.classpath/**
+java/**/.project/**
+java/**/.idea
+java/**/.idea/**
+java/**/target/**
 ###################===PYTHON===#########################
 **/__pycache__/**
 ###################===3D Unit===#########################
@@ -102,3 +109,4 @@ java/log4j/target/maven-archiver/pom.properties
 java/log4j/target/classes/log4j/TestLogMain.class
 java/log4j/target/classes/otherPackage/SecondTest.class
 .idea/vcs.xml
+java/log4j/target/classes/otherPackage/SecondTest.class
