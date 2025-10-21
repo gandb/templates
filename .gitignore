@@ -7,6 +7,7 @@
 **/**/.classpath/**
 **/**/.project/**
 **/**/.idea
+**/java/**
 java/**/ */.idea/**
 java/**/target/**
 java/**/.classpath/**
@@ -92,9 +93,7 @@ javascript/node/backend/log/taulukko-messages-202411090804.log.gz
 javascript/node/backend/log/taulukko-messages-202411081803.log.gz
 *.lst
 javascript/node/backend/log/
-*.iml
-java/caderno-felicidade/.idea/
-java/caderno-felicidade/target/
+*.iml  
 javascript/node/backend-express/log/
 javascript/node/taulukko-message-example/front-end-vue/.vite/
 java/grpc/.idea/
@@ -104,9 +103,4 @@ java/grpc/hello-world/generated-sources/
 javascript/node/import-images-from-url-typescript/dist/node_modules_/
 javascript/node/import-images-from-url-typescript/dist/
 java/spring/bootstring-jpackage-brave( electron java )/src/main/resources/brave-portable.zip
-java/graphql/hello-world/.idea/.gitignore
-java/log4j/target/maven-archiver/pom.properties
-java/log4j/target/classes/log4j/TestLogMain.class
-java/log4j/target/classes/otherPackage/SecondTest.class
-.idea/vcs.xml
-java/log4j/target/classes/otherPackage/SecondTest.class
+ 
