@@ -3,11 +3,11 @@
 ###################===JAVA===#########################
 .idea/**
 **/**/ */.idea/**
-**/**/target/**
+**/target/
 **/**/.classpath/**
 **/**/.project/**
 **/**/.idea
-**/java/**
+**/**/*.class
 java/**/ */.idea/**
 java/**/target/**
 java/**/.classpath/**
