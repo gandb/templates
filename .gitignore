@@ -1,6 +1,7 @@
 ###################===JS===#########################
 **/node_modules/**
 ###################===JAVA===#########################
+.idea/**
 **/java/**/.idea/**
 **/java/**/target/**
 **/java/**/.classpath/**
@@ -99,3 +100,4 @@ java/graphql/hello-world/.idea/.gitignore
 java/log4j/target/maven-archiver/pom.properties
 java/log4j/target/classes/log4j/TestLogMain.class
 java/log4j/target/classes/otherPackage/SecondTest.class
+.idea/vcs.xml
