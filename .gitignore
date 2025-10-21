@@ -2,6 +2,9 @@
 **/node_modules/**
 ###################===JAVA===#########################
 **/.idea/**
+**/target/**
+**/.classpath/**
+**/.project/**
 ###################===PYTHON===#########################
 **/__pycache__/**
 ###################===3D Unit===#########################
@@ -93,3 +96,6 @@ javascript/node/import-images-from-url-typescript/dist/node_modules_/
 javascript/node/import-images-from-url-typescript/dist/
 java/spring/bootstring-jpackage-brave( electron java )/src/main/resources/brave-portable.zip
 java/graphql/hello-world/.idea/.gitignore
+java/log4j/target/maven-archiver/pom.properties
+java/log4j/target/classes/log4j/TestLogMain.class
+java/log4j/target/classes/otherPackage/SecondTest.class
