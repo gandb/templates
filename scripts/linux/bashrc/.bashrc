@@ -1,3 +1,4 @@
+#ESTE TRECHO DEVE SER ADICIONADO NO FINAL DO ARQUIVO .bashrc
 # (...)
 #START EDSON CONFIG
 JDK_PATH="/media/gandb/extensao001/Programs/Portables/Linux/jdk-25/bin"
