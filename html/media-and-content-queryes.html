@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Media e Content Queryes para HTML</title>
+  </head>
+  <body>
+    <h1>Média e Content Queryes são usados para ajudar a pagina ficar responsiva ao dispositivo. Agora enquanto o Media é para a tela como um todo, o Container visa o elemento html pai, ou seja se o pai mudar de tamanho ai ele muda. Isto é ótimo pra fazer componentes responsivos.</h1>
+   
+    <section class="content-test">
+        <header>
+             <h2>Exemplo de Content Queryes:</h2>
+             <p>Note que os objetos internos dependem do elemento pai e não da largura da tela (altere para perceber que não muda). </p>
+        </header>
+        <div class="product-grid small-size">
+            <div class="product-card">
+                <img src="assets/coffe.jpg" alt="Produto">
+                <div class="card-content">
+                <h3>Nome do Produto</h3>
+                <p>Descrição curta do produto</p>
+                <button>Comprar</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-grid big-size">
+            <div class="product-card">
+                <img src="assets/coffe.jpg" alt="Produto">
+                <div class="card-content">
+                    <h3>Nome do Produto</h3>
+                    <p>Descrição curta do produto</p>
+                    <button>Comprar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+     <section class="media-test">
+        <header>
+             <h2>Exemplo de Media Queryes:</h2>
+             <p>Note que os objetos internos dependem apenas do tamanho da tela (altere para notar). Mas poderia ser outros atributos, como altura, se é impressora etc.</p>
+        </header>
+        <div class="product-grid small-size">
+            <div class="product-card">
+                <img src="assets/coffe.jpg" alt="Produto">
+                <div class="card-content">
+                <h3>Nome do Produto</h3>
+                <p>Descrição curta do produto</p>
+                <button>Comprar</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-grid big-size">
+            <div class="product-card">
+                <img src="assets/coffe.jpg" alt="Produto">
+                <div class="card-content">
+                    <h3>Nome do Produto</h3>
+                    <p>Descrição curta do produto</p>
+                    <button>Comprar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+    *, *::before, *::after {
+            box-sizing: border-box; 
+        }
+
+
+        P{
+            font-size: 1.5em;
+        }
+    /*
+    MEDIA TEST STYLE
+    */
+    .media-test .product-grid {
+        container-type: inline-size;
+        container-name: products;
+    }
+
+    .media-test .debug{
+        border-color: blue;
+        border-style:solid;
+        border-width: 1%;
+    }
+ 
+    /* Layout padrão (mobile) */
+    .media-test .product-card {
+        padding: 1rem;
+        border: 1px solid #ddd; 
+    }
+
+    
+
+    /* Quando o container tiver pelo menos 500px */
+    @media (min-width: 1024px ) and (max-width: 1280 ) {
+  
+
+        .media-test .product-card{
+            display: inline-block;
+            background-color: aqua;
+           
+        }
+
+        .media-test .product-card img { 
+            height: 90%;
+        } 
+        
+        .media-test .card-content { 
+            display: flex;
+            max-height: 40px;
+        }
+        .media-test .card-content *{
+            margin-top: auto;
+            margin-bottom: auto;
+            width: auto;
+            height: 10%;
+            text-align: left;
+            vertical-align: middle;
+            margin-right:1em;
+        }
+
+         .media-test .product-card .card-content  button{ 
+            height: 4vh;
+            width: 8vw;
+            text-align: center;
+            border-radius: 0.5em;
+            background-color: rgb(50,50,200);
+            color: antiquewhite;
+        }
+    }
+
+    /* Quando o container tiver pelo menos 800px */
+    @media  (min-width: 1281px ) {
+        .media-test *{
+            border: none;
+        }  
+
+        .media-test .product-card{
+            display: flex; 
+           
+        }
+
+        .media-test .product-card img { 
+            width: 90%;
+        } 
+        
+        .media-test .card-content {
+            display: block; 
+            padding: 1em;
+        }
+        .media-test .card-content *{ 
+            text-align: left;
+            vertical-align: middle;
+            padding-left: 0.5vw;
+        } 
+
+        .media-test .product-card .card-content  button{ 
+            padding: 0px;
+            height: 4vh;
+            width: 8vw;
+            text-align: center;
+            border-radius: 0.5em;
+            background-color: rgb(50,50,200);
+            color: antiquewhite;
+        }
+         
+    }
+     /*
+    CONTENT TEST STYLE
+    */
+    .content-test .product-grid {
+        container-type: inline-size;
+        container-name: products;
+    }
+
+    .debug{
+        background-color:rgba(0,0,255,0.5);
+        border-style:solid;
+        border-width: 1%;
+    }
+
+    .content-test .small-size{
+        max-width: 750px;
+        width: 100%;
+        min-width: 450px; 
+        height: auto;
+    }
+
+   .content-test  .big-size{
+        max-width: 1500px;
+        width: 100%;
+        min-width: 1000px;
+        height: auto;
+    }
+
+    /* Layout padrão (mobile) */
+    .content-test .product-card {
+        padding: 1rem;
+        border: 1px solid #ddd; 
+    }
+
+    
+
+    /* Quando o container tiver pelo menos 500px */
+    @container products (min-width: 500px ) and (max-width: 799px ) {
+  
+
+        .content-test .product-card{
+            display: inline-block;
+           
+        }
+
+        .content-test .product-card img { 
+            height: 90%;
+        } 
+        
+        .content-test .card-content { 
+            display: flex;
+            max-height: 40px;
+        }
+        .content-test .card-content *{
+            margin-top: auto;
+            margin-bottom: auto;
+            width: auto;
+            height: 10%;
+            text-align: left;
+            vertical-align: middle;
+            margin-right:1em;
+        }
+
+         .content-test .product-card .card-content  button{ 
+            height: 3rem;
+            width: 20%;
+            text-align: center;
+            border-radius: 0.5em;
+            background-color: rgb(50,50,200);
+            color: antiquewhite;
+        }
+    }
+
+    /* Quando o container tiver pelo menos 800px */
+    @container products (min-width: 800px) {
+        .content-test *{
+            border: none;
+        }  
+
+        .content-test .product-card{
+            display: flex;
+           
+        }
+
+        .content-test .product-card img { 
+            width: 90%;
+        } 
+        
+        .content-test .card-content {
+            display: block; 
+            padding: 1em;
+        }
+        .content-test .card-content *{ 
+            text-align: left;
+            vertical-align: middle;
+            padding-left: 0.5vw;
+        } 
+
+        .content-test .product-card .card-content  button{ 
+            padding: 0px;
+            height: 3rem;
+            width: 20rem;
+            text-align: center;
+            border-radius: 0.5em;
+            background-color: rgb(50,50,200);
+            color: antiquewhite;
+        }
+         
+    }
+    </style>
+  </body>
+</html>

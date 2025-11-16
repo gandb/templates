@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Janela Modal usando a tag dialog HTML</title>
+  </head>
+  <body>
+    <h1>Janela Modal usando a tag dialog HTML</h1>
+ 
+    <dialog id="normal-modal" closedby="none">
+      <p>Esta é uma caixa de diálogo de exemplo!  Obs: foi usado showModal e close. Apenas show exibe uma janela sem ser modal. Ah, e closedby="none" impede de fechar com ESC!!!</p>
+          <!-- Adicionando um botão para fechar a caixa de diálogo, que está oculto por padrão -->
+        <button onclick="document.getElementById('normal-modal').close()">
+        Fechar Diálogo Modal
+        </button>
+            <button onclick="document.getElementById('sub-dialog').showModal()">
+                Abrir Janela dentro do modal
+            </button>
+
+         <dialog id="sub-dialog">
+             <p>Esta é uma caixa de sub diálogo de exemplo!</p>
+              <button onclick="document.getElementById('sub-dialog').close()">
+                <p>Fechar sub janela!</p>
+            </button>           
+         </dialog>
+    </dialog>
+
+    <dialog id="auto-close-modal" class="auto-close"> 
+        <div class="notClose">
+            <p class="notClose">Esta é uma caixa de diálogo de exemplo que fecha se clicar no fundo!</p>
+            <p class="notClose">O javascript pode ser alterado pradetectar todos os dialogs que tem um user data atributo com auto-close = true de forma genérica.</p>
+            <button class="notClose" id="auto-close-button">
+            Fechar Diálogo
+            </button>
+        </div>
+    </dialog>
+ 
+    <button onclick="document.getElementById('normal-modal').showModal()">
+      Abrir Modal Normal
+    </button>
+
+     
+    <button onclick="document.getElementById('auto-close-modal').showModal()">
+      Modal que fecha se clicar no fundo
+    </button>
+ <style>
+    /*para bordas nao contarem no tamanho do objeto*/
+    *, *::before, *::after {
+        box-sizing: border-box; 
+    }
+
+    dialog::backdrop {
+     background-color: royalblue;
+    }
+    dialog{
+        border-radius: 15px;
+        border: none; 
+    }
+
+    #modal {
+        padding: 20px;
+    }
+
+    #auto-close-modal
+    { 
+        padding: 0px;
+    }
+
+    div.notClose{
+        padding-left:5vw;
+        padding-right:5vw;
+        padding-top:5vh;
+        padding-bottom:5vh;
+    }
+    </style>
+
+    <script> 
+        const dialogAutoClose = document.getElementById('auto-close-modal');
+        const contentNotClose = document.getElementById('dialog-content-not-close');
+        let canClose = false;
+
+        document.getElementById("auto-close-button").addEventListener('click', (event) => { 
+            closeAutoModal();
+        });
+
+        
+        document.addEventListener('click', (event) => { 
+            if(event.target.classList.contains("notClose"))
+            {
+                return;   
+            }
+            
+            if(!canClose && dialogAutoClose.open)
+            {
+                canClose = true;
+                return;
+            } 
+
+            closeAutoModal();
+        });
+
+        function closeAutoModal(){
+            canClose = false;
+            dialogAutoClose.close()
+        }
+    </script>
+  </body>
+</html>
