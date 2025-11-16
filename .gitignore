@@ -75,6 +75,12 @@ ai/openai/openaikey.txt
 **/flutter/**/ios/**/xcuserdata
 **/flutter/**/ios/.generated/
 
+#GRADLE
+**/.gradle/**/* 
+.gradle/**/*
+
+
+###################===EXCEPTIONS===#########################
 # Exceção para arquivos do versionamento semântico
 !/pubspec.yaml
 !/pubspec.lock
@@ -104,3 +110,6 @@ javascript/node/import-images-from-url-typescript/dist/node_modules_/
 javascript/node/import-images-from-url-typescript/dist/
 java/spring/bootstring-jpackage-brave( electron java )/src/main/resources/brave-portable.zip
  
+scripts/linux/log.txt
+
+
