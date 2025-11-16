@@ -1,0 +1,20 @@
+[Unit]
+Description=Auto Printer
+After=network.target
+
+[Service]
+Type=simple
+User=gandb
+Group=gandb
+WorkingDirectory=/media/gandb/workspace/templates/scripts/printer/
+ExecStart=/media/gandb/workspace/templates/scripts/printer/auto-printer.sh
+Restart=on-failure
+RestartSec=5s
+
+# Ambiente importante
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/gandb/.Xauthority
+
+[Install]
+WantedBy=multi-user.target

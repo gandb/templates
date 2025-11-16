@@ -27,7 +27,7 @@ fi
 
 #lpstat -p lista as impressoras
 
-PRINTER="HP_LaserJet_M109-M112"
+PRINTER="HP_LaserJet_M110w_8A5B3C_USB"
 
 #define a impressora padrão
 lpoptions -d "$PRINTER"

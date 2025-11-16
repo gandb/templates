@@ -1,0 +1,39 @@
+Os comandos que devem ser executados sem alteração serão exibidos após o símbolo $
+Os comandos que devem ser executados com alteração dependendo do seu ambiente serão exibidos após o símbolo @
+
+
+
+##INSTALACAO##
+1- Altere no arquivo auto-printer.service o nome da impressora padrão
+2- Altere o caminho do script auto-printer.sh deste diretório.
+3- Mova o auto-printer.service para /etc/systemd/system/
+4- Altere a permissão do serviço $sudo chmod 644 /etc/systemd/system/auto-printer.service
+5- Altere a permissão do script desta pasta @sudo chmod +x /caminho/do/auto-printer.sh
+6- Recarregue o suystemctl $sudo systemctl daemon-reload
+7- Habilite na inicialização $sudo systemctl enable auto-printer.service
+8- Inicialize o serviço $sudo systemctl start auto-printer.service
+9- Verifique o status $sudo systemctl status auto-printer.service
+10- Altere o arquivo journal $sudo nano /etc/systemd/journald.conf 
+e descomente e altere o conteúdo abaixo:
+[Journal]
+SystemMaxUse=1G
+SystemMaxFileSize=100M
+SystemMaxFiles=10
+MaxRetentionSec=1month
+11- Reinicie o journal $sudo systemctl restart systemd-journald
+12- Verifique se o journal esta rodando corretamente $sudo systemctl status systemd-journald
+
+
+
+##COMANDOS ÚTEIS##
+### Ver logs do serviço###
+$sudo journalctl -u auto-printer.service -f
+
+###Verificar se carregou corretamente###
+$sudo systemctl cat auto-printer.service
+
+###Testar execução manual###
+@sudo /caminho/do/seu/auto-printer.sh
+
+###Ver dependências###
+$systemctl list-dependencies auto-printer.service
