@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shadow DOM Example</title>
+    <style>
+        /* Estilo GLOBAL - NÃO afeta o Shadow DOM */
+        button {
+            background: red !important;
+            color: white !important;
+            padding: 20px !important;
+        }
+        
+        .custom-widget {
+            margin: 20px;
+            padding: 10px;
+            border: 2px dashed #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Demonstração Shadow DOM</h1>
+    
+    <!-- Botão normal (afetado pelo CSS global) -->
+    <button>Botão Normal (vermelho pelo CSS global)</button>
+    
+    <!-- Nosso componente customizado -->
+    <div class="custom-widget" id="myWidget"></div>
+    
+    <script>
+        // Criando o Shadow DOM
+        const widget = document.getElementById('myWidget');
+        const shadow = widget.attachShadow({ mode: 'open' });
+        
+        // HTML interno do Shadow DOM
+        shadow.innerHTML = `
+            <style>
+                /* Estilos ISOLADOS - só afetam dentro do Shadow DOM */
+                button {
+                    background: linear-gradient(45deg, #4CAF50, #45a049);
+                    color: white;
+                    border: none;
+                    padding: 15px 30px;
+                    border-radius: 25px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+                
+                button:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                }
+                
+                .container {
+                    background: #f8f9fa;
+                    padding: 20px;
+                    border-radius: 10px;
+                    text-align: center;
+                }
+                
+                p {
+                    color: #333;
+                    margin-bottom: 15px;
+                }
+            </style>
+            
+            <div class="container">
+                <p>Este conteúdo está DENTRO do Shadow DOM</p>
+                <button id="shadowButton">Botão no Shadow DOM</button>
+                <p>Os estilos globais NÃO me afetam! 🎯</p>
+            </div>
+        `;
+        
+        // JavaScript também pode ser adicionado
+        shadow.getElementById('shadowButton').addEventListener('click', () => {
+            alert('Botão do Shadow DOM clicado!');
+        });
+    </script>
+</body>
+</html>

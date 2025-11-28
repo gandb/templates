@@ -4,50 +4,11 @@
     // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
-
-{
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open media e queryes",
-            "file": "/media/gandb/workspace/templates/html/media-and-content-queryes.html"
-        }, 
-        
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open modal.html",
-            "file": "/media/gandb/workspace/templates/html/modal.html"
-        }, 
-        
-          {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open mark.html",
-            "file": "/media/gandb/workspace/templates/html/mark.html"
-        }, {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open wbr.html",
-            "file": "/media/gandb/workspace/templates/html/wbr.html"
-        },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open figure.html",
-            "file": "/media/gandb/workspace/templates/html/figure.html"
-        },
-         {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open map.html",
-            "file": "/media/gandb/workspace/templates/html/map.html"
-        },
-         {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open progressbar.html",
-            "file": "/media/gandb/workspace/templates/html/progressbar.html"
+            "name": "Run Browser files with chrome",
+            "file": "/media/gandb/workspace/templates/html/${fileBasename}"
         }
     ]
 }
