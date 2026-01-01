@@ -1,0 +1,4 @@
+/*Este script deve ser posto na pasta /usr/local/bin para ser executado globalmente ou em ~/local/bin se for pra executar apenas pro usuário. A permissao deve ser 755 se global ou 700 se apenas pro usuário */
+#!/bin/bash
+/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=pinta --file-forwarding com.github.PintaProject.Pinta @@ "$@" @@
+
