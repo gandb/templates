@@ -123,6 +123,6 @@ public class PoteDaFelicidade {
         moments.sort(PoteDaFelicidade::comparableByASCII);
         for (String moment : moments) {
             logln("Moment:" + moment);
-        }
+        } 
     }
 }
