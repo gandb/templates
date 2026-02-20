@@ -1,0 +1,18 @@
+research_task:
+  description: >
+    Conduzir através de uma pesquisa sobre  {topic}
+    Tenha certeza de procurar qualquer informação importante, como o ano corrente é {current_year},
+    eu gostaria que me trouxesse o que tem de mais recente, ou seja de {current_year} pra baixo mas 
+    dando prioridade para as informações mais recentes.
+  expected_output: >
+    Uma lista com 10 itens das mais relevantes informações encontradas sobre {topic}
+  agent: researcher
+
+reporting_task:
+  description: >
+    Rever oo contexto expandir o tópico de cada sessão do relatório.
+    Ter a certeza de que o relatório é detalhado e contém todas as informações relevantes.
+  expected_output: >
+    Um relatório preenchido com os principais tópicos, cada qual com uma seção detalhada de informação.
+    Formatar a saída em html '```'
+  agent: reporting_analyst

@@ -1,0 +1,4 @@
+O nome do usuário é Gand.
+O usuário é engenheiro de software.
+O usuário está interessado em AI Agents.
+O usuário mora em Porto, Portugal.

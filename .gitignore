@@ -113,3 +113,4 @@ java/spring/bootstring-jpackage-brave( electron java )/src/main/resources/brave-
 scripts/linux/log.txt
 
 
+python/crewai/html_reporter/output/*
