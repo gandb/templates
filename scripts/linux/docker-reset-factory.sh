@@ -1,0 +1,8 @@
+#!/bin/bash
+docker compose down -v
+docker system prune -a -f --volumes
+docker image prune -a
+docker container prune -f
+docker volume prune -f
+docker volume prune -f --filter all=true
+docker network prune -f
