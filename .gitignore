@@ -114,3 +114,7 @@ scripts/linux/log.txt
 
 
 python/crewai/html_reporter/output/*
+
+#Typesccript no docker
+docker/**/*.map
+docker/**/*.js
