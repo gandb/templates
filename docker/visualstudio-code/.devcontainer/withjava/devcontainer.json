@@ -1,0 +1,78 @@
+{
+    "name": "Open Node Com Java",
+    "image": "?", 
+
+    // Mount your project inside the container
+    "workspaceFolder": "/buildspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/buildspace,type=bind",
+
+    // Set environment variables
+    "containerEnv": {
+        //"DATABASE_HOST": "${env:DATABASE_HOST}",
+        "VARIAVEL_EXEMPLO_01": "Teste1",
+        "VARIAVEL_EXEMPLO_02": "Teste2"
+    },
+
+     /* Add extra hosts -estudar pra que serve
+     "runArgs": [
+        "--env-file=${localWorkspaceFolder}/.devcontainer/.env",
+        "--add-host=as-id.efacec.com:172.18.200.101",
+        "-v/home/scatex/.docker:/home/scatex/.docker", 
+        "-v/var/run/docker.sock:/var/run/docker.sock",
+        "-v${localWorkspaceFolder}/tmp/vscode-server-nojava:/home/scatex/.vscode-server"
+    ],
+    "remoteUser": "gandb", 
+    */
+    
+    // Extensions to install inside the container
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "johnstoncode.svn-scm", 
+                "vscjava.vscode-java-pack", 
+                "vscjava.vscode-java-test",
+                "GitHub.copilot",
+                "redhat.vscode-xml@0.26.1",  // Use older compatible version
+                "sonarsource.sonarlint-vscode"
+            ],
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "bash-env": {
+                        "path": "bash",
+                        "args": ["-c", "cd /env/ ; source ./shell-env.sh ; cd /buildspace/ ; export JENKINS_BASEDIR=/buildspace ; tcsh -c 'source p2_login ; bash'"],
+                        "icon": "terminal-bash"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "bash-env",
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-17",
+                        "path": "/env/buildtools/jdk",
+                        "default": true
+                    }
+                ],
+                "java.jdt.ls.java.home": "/env/buildtools/jdk",
+                "maven.executable.path": "/buildspace/.devcontainer/mvnw",
+                "java.configuration.updateBuildConfiguration": "automatic",
+                "java.compile.nullAnalysis.mode": "disabled",
+                "java.autobuild.enabled": false,
+                "java.configuration.workspaceCacheLimit": 90,
+                "java.workspace.outputRefreshDelay": 1000,
+                "java.import.exclusions": [
+                    "**/target/**",
+                    "**/build/**", 
+                    "**/node_modules/**",
+                    "**/tmp/**",
+                    "**/customer-modules/**",
+                    "**/roles/**"
+                ],
+                "extensions.ignoreRecommendations": true
+            }
+        }
+    },
+    // we need to create the folders before docker because of permissions
+    "initializeCommand": " mkdir -p  ~/teste1" ,    
+    "postCreateCommand": "mkdir -p >deve ~/teste2" /*,
+    "postAttachCommand": "java HelloWorld.class"*/
+}

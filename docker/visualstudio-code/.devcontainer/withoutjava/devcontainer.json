@@ -1,0 +1,59 @@
+{
+    "name": "Open Node Com Typescript",
+    "image": "node:22-slim", 
+
+    // workspaceFolder é o diretório que vai ficar o fonte  
+    "workspaceFolder": "/buildspace",
+    // workspaceMount do jeito que está faz um bind com a pasta local, o que ocorre em um lugar se repete no outro
+    "workspaceMount": "source=${localWorkspaceFolder},target=/buildspace,type=bind",
+
+    // Configura variaveis que estarão disponíveis no container, estas variaveis nao ficam disponíveis no host
+    "containerEnv": {
+        //"DATABASE_HOST": "${env:DATABASE_HOST}",
+        "VARIAVEL_EXEMPLO_01": "Teste1",
+        "VARIAVEL_EXEMPLO_02": "Teste2"
+
+    },
+
+    /* Add extra hosts -estudar pra que serve
+     "runArgs": [
+        "--env-file=${localWorkspaceFolder}/.devcontainer/.env",
+        "--add-host=as-id.efacec.com:172.18.200.101",
+        "-v/home/scatex/.docker:/home/scatex/.docker", 
+        "-v/var/run/docker.sock:/var/run/docker.sock",
+        "-v${localWorkspaceFolder}/tmp/vscode-server-nojava:/home/scatex/.vscode-server"
+    ],
+    "remoteUser": "gandb", 
+    */
+    
+    // Extensions to install inside the container
+    "customizations": {
+        "vscode": {
+            "extensions": [ 
+               /* "ms-vscode.cpptools",
+                "GitHub.copilot",
+                "redhat.vscode-xml",
+                "sonarsource.sonarlint-vscode"*/
+            ],
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "bash-env": {
+                        "path": "bash",
+                        "args": [],
+                        "icon": "terminal-bash"
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "bash-env",
+                "extensions.ignoreRecommendations": true
+            }
+        }
+    },
+
+    //comandos que rodam na maquina local
+    "initializeCommand": "mkdir -p ~/teste1",    
+    "postCreateCommand": 
+        "mkdir -p ~/teste2"/*,
+    "postAttachCommand": "node index.js",
+ */
+    
+}

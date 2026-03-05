@@ -1,0 +1,30 @@
+#!/bin/bash
+
+export JENKINS_BASEDIR="/sx-env/"
+
+pushd /sx-env/
+source ./shell-env.sh
+export SX_BUILDROOT="/buildspace/"
+export JENKINS_BASEDIR="/buildspace/"
+popd
+
+export CURRENT_DIR=$(pwd)
+
+cd /buildspace/
+echo $SX_BUILDROOT
+#tcsh -c "source p2_login ; cd $CURRENT_DIR ; mvn $@"
+# Create a temporary script to handle complex arguments
+TEMP_SCRIPT=$(mktemp)
+cat > "$TEMP_SCRIPT" << 'EOF'
+#!/bin/bash
+cd "$1"
+shift
+mvn "$@"
+EOF
+chmod +x "$TEMP_SCRIPT"
+
+# Use tcsh to source p2_login, then call bash script with proper argument handling
+tcsh -c "source p2_login ; '$TEMP_SCRIPT' '$CURRENT_DIR' $(printf '%q ' "$@")"
+
+# Clean up
+rm -f "$TEMP_SCRIPT"
