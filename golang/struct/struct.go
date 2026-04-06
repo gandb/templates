@@ -1,64 +1,36 @@
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "fmt"
 
-func arraysTest() {
 
-	fmt.Println("Iniciando teste com arrays: ")
-	var pessoas [3]string
-	pessoas = [3]string{"Ana", "João", "Maria"}
+type Endereco struct {
+    Rua string
+} 
 
-	fmt.Println("Listando o nome das pessoas no array: ")
-
-	for _, pessoa := range pessoas {
-		fmt.Println("A pessoa é " + pessoa)
-	}
-
-	fmt.Println("Listando o nome das pessoas no array com index: ")
-
-	for index, pessoa := range pessoas {
-		fmt.Println("A pessoa número " + strconv.Itoa(index) + " é " + pessoa)
-	}
-
-	fmt.Println("Listando pessoas de um array usando for tradicional: ")
-
-	for index := 0; index < len(pessoas); index++ {
-		fmt.Println("A pessoa número " + strconv.Itoa(index) + " é " + pessoas[index])
-	}
-
-	return
-}
-
-func mapsTest() {
-	fmt.Println("Iniciando teste com mapas: ")
-	pessoas := map[int]string{25: "Ana", 45: "João", 30: "José"}
-
-	fmt.Println("Listando o nome das pessoas no mapa: ")
-
-	for _, pessoa := range pessoas {
-		fmt.Println("A pessoa é " + pessoa)
-	}
-
-	fmt.Println("Listando o nome das pessoas no mapa com index: ")
-
-	for index, pessoa := range pessoas {
-		fmt.Println("A pessoa com idade " + strconv.Itoa(index) + " é " + pessoa)
-	}
-
-	fmt.Println("Listando pessoas de um mapa usando for tradicional: ")
-
-	for index := 0; index < len(pessoas); index++ {
-		fmt.Println("A pessoa número " + strconv.Itoa(index) + " é " + pessoas[index])
-	}
-
-	return
+type Pessoa struct {
+    Nome string
+    Idade int
+	Endereco // Embedding
 }
 
 func main() {
-	fmt.Println("Teste com estruturas iniciais: ")
-	arraysTest()
-	mapsTest()
+   p := Pessoa{Endereco:Endereco{Rua: "Tv Chaves de Oliveira"} ,Nome: "João", Idade: 30}
+   fmt.Println(p.Nome) // João 
+   fmt.Println(p) // João 
+   
+   // Array fixo, obrigatório declarar com var
+	var arr [3]int = [3]int{1, 2, 3}
+	fmt.Println(arr) 
+
+	// Slice dinâmico, obrigatório declar com a anotação :=
+	slice := []int{4, 5}
+	slice = append(slice, 6) // Adiciona  
+	fmt.Println(slice) 
+	
+	//mapa
+	m := make(map[string]int)
+	m["chave"] = 42
+	fmt.Println(m["chave"]) // 42  
+
+	
 }
